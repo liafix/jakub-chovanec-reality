@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
-import { LocalLandingPage } from "@/components/marketing/LocalLandingPage";
-import { getLocalPage } from "@/lib/content/local-pages";
+import { notFound } from "next/navigation";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
-const page = getLocalPage("rekonstrukcie-trencianska-tepla");
-
 export const metadata: Metadata = buildPageMetadata({
-  title: page?.title ?? "Rekonštrukcie interiéru Trenčianska Teplá | Martiš MV",
-  description:
-    page?.description ??
-    "Interiérové rekonštrukcie v Trenčianskej Teplej: obklady, dlažby, podlahy, sanita, sadrokartón a praktický postup prác.",
+  title: "Stránka neexistuje | Jakub Chovanec Reality",
+  description: "Táto stará lokálna stránka nie je súčasťou realitnej informačnej architektúry.",
   path: "/rekonstrukcie-trencianska-tepla"
 });
 
-export default function RekonstrukcieTrencianskaTeplaPage() {
-  if (!page) return null;
-  return <LocalLandingPage page={page} />;
+export default function InactiveLegacyLocalPage() {
+  notFound();
 }

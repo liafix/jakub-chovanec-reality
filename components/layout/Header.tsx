@@ -29,8 +29,9 @@ export function Header() {
         <Logo variant="header" />
 
         <nav className="hidden items-center gap-14 text-base font-semibold text-black/74 md:flex">
-          <Link href="/sluzby">Služby</Link>
-          <Link href="/booking">Obhliadka</Link>
+          <Link href="/#odhad-ceny">Odhad ceny</Link>
+          <Link href="/sluzby/databaza-kupujucich">Kupujúci</Link>
+          <Link href="/booking?service=realitna-konzultacia">Konzultácia</Link>
           <Link href="/kontakt">Kontakt</Link>
         </nav>
 

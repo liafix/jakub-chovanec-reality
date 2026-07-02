@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
-import { LocalLandingPage } from "@/components/marketing/LocalLandingPage";
-import { getLocalPage } from "@/lib/content/local-pages";
+import { notFound } from "next/navigation";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
-const page = getLocalPage("rekonstrukcie-nova-dubnica");
-
 export const metadata: Metadata = buildPageMetadata({
-  title: page?.title ?? "Rekonštrukcie interiéru Nová Dubnica | Martiš MV",
-  description:
-    page?.description ??
-    "Rekonštrukcie interiérov pre Novú Dubnicu: lokálny kontakt, obhliadka, kúpeľne, podlahy, obklady, sanita a sadrokartón.",
+  title: "Stránka neexistuje | Jakub Chovanec Reality",
+  description: "Táto stará lokálna stránka nie je súčasťou realitnej informačnej architektúry.",
   path: "/rekonstrukcie-nova-dubnica"
 });
 
-export default function RekonstrukcieNovaDubnicaPage() {
-  if (!page) return null;
-  return <LocalLandingPage page={page} />;
+export default function InactiveLegacyLocalPage() {
+  notFound();
 }

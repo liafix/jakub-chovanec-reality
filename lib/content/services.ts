@@ -1,37 +1,33 @@
 import type { PaymentType, ServiceSlug } from "@/lib/contracts";
 
 export const company = {
-  name: "Martiš MV",
-  legalName: "Martiš MV",
-  descriptor: "Interiérové rekonštrukcie",
-  slogan: "Rekonštrukcie interiéru na kľúč",
+  name: "Jakub Chovanec",
+  legalName: "Jakub Chovanec | Reality",
+  descriptor: "Moderny predaj nehnutelnosti",
+  slogan: "Najmladsi realitak na Slovensku",
 
-  // Oficiálne firemné údaje
-  ico: "35359871",
-  email: "mv_dubnica@mail.t-com.sk",
-  emailHref: "mailto:mv_dubnica@mail.t-com.sk",
+  ico: "",
+  email: "kontakt@example.com",
+  emailHref: "mailto:kontakt@example.com",
 
-  // Oficiálny telefón
-  phoneDisplay: "+421 42 442 02 84",
-  phoneHref: "tel:+421424420284",
+  phoneDisplay: "+421 900 000 000",
+  phoneHref: "tel:+421900000000",
 
-  // WhatsApp / rýchly kontakt ponechaný ako mobilné číslo používané v projekte
-  mobileDisplay: "0948 443 899",
-  mobileHref: "tel:0948443899",
-  whatsappDisplay: "0948 443 899",
+  mobileDisplay: "+421 900 000 000",
+  mobileHref: "tel:+421900000000",
+  whatsappDisplay: "+421 900 000 000",
   whatsappHref:
-    "https://wa.me/421948443899?text=Dobr%C3%BD%20de%C5%88%2C%20m%C3%A1m%20z%C3%A1ujem%20o%20rekon%C5%A1trukciu.",
+    "https://wa.me/421900000000?text=Dobry%20den%2C%20mam%20zaujem%20o%20realitnu%20sluzbu.",
 
-  baseLocation: "Dubnica nad Váhom",
+  baseLocation: "Slovensko",
 
-  // Oficiálna adresa sídla
-  address: "A. Kmeťa 365/8, 018 41 Dubnica nad Váhom",
-  legalAddress: "A. Kmeťa 365/8, 018 41 Dubnica nad Váhom",
-  mapAddressTitle: "A. Kmeťa 365/8",
-  city: "Dubnica nad Váhom",
+  address: "Slovensko",
+  legalAddress: "Doplnit po potvrdeni obchodnych udajov",
+  mapAddressTitle: "Slovensko",
+  city: "Slovensko",
 
-  licensePlate: "IL 590DF",
-  serviceArea: ["Dubnica nad Váhom", "Ilava", "Trenčín", "Nová Dubnica", "Nemšová", "okolie Považia"]
+  licensePlate: "",
+  serviceArea: ["Slovensko", "Trenciansky kraj", "Bratislavsky kraj", "online konzultacie"]
 } as const;
 
 export type ServiceFaq = {
@@ -71,329 +67,365 @@ export type Service = {
   jsonLd: ServiceJsonLdData;
 };
 
-const localities = ["Dubnica nad Váhom", "Ilava", "Trenčín", "Nová Dubnica", "okolité obce"];
+const serviceArea = ["Slovensko", "Trenciansky kraj", "Bratislavsky kraj", "online"];
 
-const defaultProcessSteps: ServiceProcessStep[] = [
+const sellerEstimateSteps: ServiceProcessStep[] = [
   {
-    title: "Obhliadka",
-    text: "Pozrieme priestor, podklad, rozmery a praktické obmedzenia priamo na mieste alebo podľa fotiek."
+    title: "Zakladne udaje",
+    text: "Majitel posle typ nehnutelnosti, lokalitu, vymeru, stav a planovany termin predaja."
   },
   {
-    title: "Cenová ponuka",
-    text: "Dohodneme rozsah, materiál, poradie prác a realistický termín realizácie."
+    title: "Trhove porovnanie",
+    text: "Pozrieme sa na konkurenciu, cenu podobnych ponuk a realny dopyt v lokalite."
   },
   {
-    title: "Realizácia",
-    text: "Práce prebiehajú v nadväznosti profesií tak, aby bol výsledok čistý a bez zbytočného chaosu."
-  },
-  {
-    title: "Odovzdanie",
-    text: "Priestor skontrolujeme, doladíme detaily a zákazník vie, čo bolo hotové a v akom rozsahu."
+    title: "Strategia predaja",
+    text: "Odhad ceny doplnime odporucanym postupom prezentacie, inzercie a kvalifikacie zaujemcov."
   }
 ];
 
-function makeFaq(label: string, scope: string): ServiceFaq[] {
-  return [
-    {
-      question: `Robíte ${label.toLowerCase()} aj mimo Dubnice nad Váhom?`,
-      answer:
-        "Áno. Pracujeme najmä v Dubnici nad Váhom, Ilave, Trenčíne, Novej Dubnici a v okolitých obciach podľa rozsahu práce."
-    },
-    {
-      question: "Je potrebná obhliadka pred cenovou ponukou?",
-      answer:
-        "Pri väčšine prác áno. Obhliadka pomôže presne určiť stav podkladu, rozsah, materiál, termín a možné riziká."
-    },
-    {
-      question: "Môžem najskôr poslať fotky cez WhatsApp?",
-      answer:
-        "Áno. Fotky priestoru pomôžu rýchlo posúdiť situáciu a pripraviť sa na obhliadku. Pri väčšom rozsahu je osobná obhliadka stále najistejšia."
-    },
-    {
-      question: `Čo ovplyvňuje cenu služby ${label.toLowerCase()}?`,
-      answer: scope
-    }
-  ];
-}
+const consultationSteps: ServiceProcessStep[] = [
+  {
+    title: "Situacia",
+    text: "Prejdeme aktualnu otazku: predaj, kupa, investicia, vyjednavanie alebo priprava ponuky."
+  },
+  {
+    title: "Moznosti",
+    text: "Porovname rizika, cenu, nacasovanie a prakticke kroky podla realnej situacie."
+  },
+  {
+    title: "Akcny plan",
+    text: "Vystupom je jasne odporucanie, co spravit najblizsie a comu sa vyhnut."
+  }
+];
 
 export const services: Service[] = [
   {
-    slug: "obklady",
-    cardImage: "/images/sluzby/obklady.webp",
-    cardPreview:
-      "Realizujeme obklady do kúpeľní, kuchýň, technických miestností aj menších interiérov. Pri práci sledujeme presné napojenia a čistý detail.",
-    cardImageAlt: "Svetlý kúpeľňový obklad s kamenným detailom",
-    label: "Obklady",
-    shortLabel: "Obklady",
-    h1: "Obklady v Dubnici nad Váhom a okolí",
-    intro:
-      "Realizujeme obklady do kúpeľní, kuchýň, technických miestností aj menších interiérov. Pri práci sledujeme presné napojenia, rovinu, škáry a čistý detail, aby výsledok pôsobil kvalitne aj po rokoch používania.",
-    metaTitle: "Obklady Dubnica nad Váhom | Martiš MV",
-    metaDescription:
-      "Obklady do kúpeľní, kuchýň a interiérov v Dubnici nad Váhom, Ilave a Trenčíne. Obhliadka, presný postup a čistý detail.",
-    localities,
-    benefits: [
-      "presné napojenia pri vani, sprche, sanite a hranách",
-      "kontrola podkladu pred začiatkom prác",
-      "vhodné riešenie pre kúpeľne, kuchyne aj technické priestory",
-      "jasná dohoda rozsahu pred realizáciou"
-    ],
-    processSteps: defaultProcessSteps,
-    faq: makeFaq(
-      "obklady",
-      "Cenu ovplyvňuje plocha, formát obkladu, stav podkladu, počet rezov, rohy, niky, sokle a náročnosť napojenia na sanitu alebo sprchový kút."
-    ),
-    primaryCta: "Rezervovať obhliadku",
-    secondaryCta: "Poslať fotky cez WhatsApp",
-    paymentType: "reservation_fee",
-    jsonLd: {
-      serviceType: "Obkladanie kúpeľní, kuchýň a interiérov",
-      areaServed: localities,
-      providerName: company.name
-    }
-  },
-  {
-    slug: "dlazby",
-    cardImage: "/images/sluzby/dlazby.webp",
-    cardPreview:
-      "Pokladáme dlažby v kúpeľniach, chodbách, vstupoch a interiérových priestoroch. Dôležitá je príprava podkladu a čisté rezy.",
-    cardImageAlt: "Teplá drevená a dlažbová podlaha v interiéri",
-    label: "Dlažby",
-    shortLabel: "Dlažby",
-    h1: "Dlažby v Dubnici nad Váhom a okolí",
-    intro:
-      "Pokladáme dlažby v kúpeľniach, chodbách, vstupoch a interiérových priestoroch. Dôležitá je príprava podkladu, správny smer pokládky, čisté rezy a spoľahlivý výsledok pre každodenné používanie.",
-    metaTitle: "Dlažby Dubnica nad Váhom | Pokládka dlažby | Martiš MV",
-    metaDescription:
-      "Pokládka dlažby v interiéri pre Dubnicu nad Váhom, Ilavu, Trenčín a okolie. Príprava podkladu, presné rezy a obhliadka.",
-    localities,
-    benefits: [
-      "kontrola roviny a pripravenosti podkladu",
-      "čisté rezy pri stenách, dverách a prechodoch",
-      "praktické riešenie pre kúpeľne, chodby a vstupy",
-      "dohoda dilatácií, soklov a ukončení"
-    ],
-    processSteps: defaultProcessSteps,
-    faq: makeFaq(
-      "dlažby",
-      "Cenu ovplyvňuje výmera, formát dlažby, rovinnosť podkladu, množstvo rezov, sokle, prechody medzi miestnosťami a prípadná príprava alebo nivelizácia."
-    ),
-    primaryCta: "Rezervovať obhliadku",
-    secondaryCta: "Poslať fotky podlahy",
-    paymentType: "reservation_fee",
-    jsonLd: {
-      serviceType: "Pokládka interiérovej dlažby",
-      areaServed: localities,
-      providerName: company.name
-    }
-  },
-  {
-    slug: "omietky",
-    cardImage: "/images/sluzby/omietky.webp",
-    cardPreview:
-      "Opravujeme a pripravujeme steny tak, aby interiér pôsobil čisto ešte pred finálnym zariadením. Riešime povrch aj detaily napojení.",
-    cardImageAlt: "Jemná svetlá omietka a stena v interiéri",
-    label: "Omietky",
-    shortLabel: "Omietky",
-    h1: "Omietky a úpravy stien v Dubnici nad Váhom a okolí",
-    intro:
-      "Opravujeme a pripravujeme steny tak, aby interiér pôsobil čisto ešte pred finálnym zariadením. Riešime povrchové úpravy, opravy po zásahoch, dorovnanie detailov a prípravu pred ďalšími prácami.",
-    metaTitle: "Omietky Dubnica nad Váhom | Úpravy stien | Martiš MV",
-    metaDescription:
-      "Omietky, opravy a príprava stien pre byty a domy v Dubnici nad Váhom, Ilave, Trenčíne a okolí. Obhliadka a jasný postup.",
-    localities,
-    benefits: [
-      "opravy stien po rekonštrukcii alebo rozvodoch",
-      "príprava podkladu pred maľbou alebo ďalšími prácami",
-      "riešenie detailov pri rohoch, priečkach a napojeniach",
-      "vhodné pre byty, domy aj menšie priestory"
-    ],
-    processSteps: defaultProcessSteps,
-    faq: makeFaq(
-      "omietky",
-      "Cenu ovplyvňuje stav stien, rozsah opráv, hrúbka vrstiev, prístupnosť priestoru, sušenie a požadovaná pripravenosť pred finálnou úpravou."
-    ),
-    primaryCta: "Rezervovať obhliadku",
-    secondaryCta: "Poslať fotky stien",
-    paymentType: "reservation_fee",
-    jsonLd: {
-      serviceType: "Omietky a interiérové úpravy stien",
-      areaServed: localities,
-      providerName: company.name
-    }
-  },
-  {
-    slug: "podlahy",
-    cardImage: "/images/sluzby/podlahy.webp",
-    cardPreview:
-      "Podlahy riešime od prípravy priestoru až po finálne uloženie a detail pri stenách, dverách a prechodoch.",
-    cardImageAlt: "Svetlá interiérová podlaha s jemnou štruktúrou",
-    label: "Podlahy",
-    shortLabel: "Podlahy",
-    h1: "Podlahy v Dubnici nad Váhom a okolí",
-    intro:
-      "Podlahy riešime od prípravy priestoru až po finálne uloženie a detail pri stenách, dverách a prechodoch. Pomáhame zvoliť praktické riešenie pre každodenné bývanie aj rekonštrukciu na kľúč.",
-    metaTitle: "Podlahy Dubnica nad Váhom | Montáž podláh | Martiš MV",
-    metaDescription:
-      "Montáž a príprava podláh v Dubnici nad Váhom, Ilave, Trenčíne a okolí. Detail pri stenách, dverách a prechodoch.",
-    localities,
-    benefits: [
-      "príprava priestoru pred pokládkou",
-      "čisté ukončenia pri stenách a dverách",
-      "riešenie prechodov medzi miestnosťami",
-      "nadväznosť na zárubne, lišty a ďalšie práce"
-    ],
-    processSteps: defaultProcessSteps,
-    faq: makeFaq(
-      "podlahy",
-      "Cenu ovplyvňuje typ podlahy, výmera, pripravenosť podkladu, množstvo prechodov, lišty, rezanie a nadväznosť na dvere alebo existujúce povrchy."
-    ),
-    primaryCta: "Rezervovať obhliadku",
-    secondaryCta: "Poslať fotky priestoru",
-    paymentType: "reservation_fee",
-    jsonLd: {
-      serviceType: "Montáž a príprava interiérových podláh",
-      areaServed: localities,
-      providerName: company.name
-    }
-  },
-  {
-    slug: "sanita",
-    cardImage: "/images/sluzby/sanita.webp",
-    cardPreview:
-      "Montáž sanity berieme ako finálny detail kúpeľne alebo WC, ktorý musí dobre fungovať aj dobre vyzerať.",
-    cardImageAlt: "Moderná kúpeľňová sanita so svetlým obkladom",
-    label: "Sanita",
-    shortLabel: "Sanita",
-    h1: "Montáž sanity v Dubnici nad Váhom a okolí",
-    intro:
-      "Montáž sanity berieme ako finálny detail kúpeľne alebo WC, ktorý musí dobre fungovať aj dobre vyzerať. Riešime napojenia, osadenie, praktickú výšku a čistý výsledok v nadväznosti na obklady.",
-    metaTitle: "Sanita Dubnica nad Váhom | Montáž sanity | Martiš MV",
-    metaDescription:
-      "Montáž sanity pre kúpeľne a WC v Dubnici nad Váhom, Ilave, Trenčíne a okolí. Čisté osadenie a nadväznosť na obklady.",
-    localities,
-    benefits: [
-      "osadenie sanity v nadväznosti na obklady",
-      "riešenie praktickej výšky a používania",
-      "čistý finálny detail kúpeľne alebo WC",
-      "možnosť konzultácie pred výberom prvkov"
-    ],
-    processSteps: defaultProcessSteps,
-    faq: makeFaq(
-      "sanitu",
-      "Cenu ovplyvňuje typ sanity, pripravenosť prívodov a odpadov, stav obkladov, rozsah montáže, počet prvkov a potreba úprav pred osadením."
-    ),
-    primaryCta: "Dohodnúť konzultáciu",
-    secondaryCta: "Poslať fotky kúpeľne",
-    paymentType: "consultation_fee",
-    jsonLd: {
-      serviceType: "Montáž sanity v kúpeľni a WC",
-      areaServed: localities,
-      providerName: company.name
-    }
-  },
-  {
-    slug: "dvere-zarubne-kovania",
-    cardImage: "/images/sluzby/dvere.webp",
-    cardPreview:
-      "Osádzame interiérové dvere, zárubne a kovania tak, aby sedeli s podlahou, stenami aj celkovým štýlom rekonštrukcie.",
-    cardImageAlt: "Interiérové dvere so zárubňou a kovaním",
-    label: "Dvere, zárubne, kovania",
-    shortLabel: "Dvere a zárubne",
-    h1: "Dvere, zárubne a kovania v Dubnici nad Váhom a okolí",
-    intro:
-      "Osádzame interiérové dvere, zárubne a kovania tak, aby sedeli s podlahou, stenami aj celkovým štýlom rekonštrukcie. Dôležitá je presnosť, rovina a čisté napojenie na hotový interiér.",
-    metaTitle: "Dvere a zárubne Dubnica nad Váhom | Martiš MV",
-    metaDescription:
-      "Osadenie interiérových dverí, zárubní a kovaní v Dubnici nad Váhom, Ilave, Trenčíne a okolí. Presné napojenie na podlahy a steny.",
-    localities,
-    benefits: [
-      "osadenie v nadväznosti na podlahu a steny",
-      "kontrola roviny a funkčnosti otvárania",
-      "čisté detaily pri zárubniach a kovaniach",
-      "vhodné pri čiastočnej aj kompletnej rekonštrukcii"
-    ],
-    processSteps: defaultProcessSteps,
-    faq: makeFaq(
-      "dvere, zárubne a kovania",
-      "Cenu ovplyvňuje počet kusov, typ zárubne, pripravenosť stavebného otvoru, nadväznosť na podlahu, kovanie a prípadné úpravy okolia."
-    ),
-    primaryCta: "Rezervovať obhliadku",
-    secondaryCta: "Poslať rozmery otvorov",
-    paymentType: "reservation_fee",
-    jsonLd: {
-      serviceType: "Osadenie interiérových dverí, zárubní a kovaní",
-      areaServed: localities,
-      providerName: company.name
-    }
-  },
-  {
-    slug: "sadrokarton",
-    cardImage: "/images/sluzby/sadrokarton.webp",
-    cardPreview:
-      "Sadrokartón používame pri priečkach, podhľadoch, zakrytí rozvodov aj úpravách dispozície.",
-    cardImageAlt: "Svetlý sadrokartónový detail v interiéri",
-    label: "Sadrokartón",
-    shortLabel: "Sadrokartón",
-    h1: "Sadrokartón v Dubnici nad Váhom a okolí",
-    intro:
-      "Sadrokartón používame pri priečkach, podhľadoch, zakrytí rozvodov aj úpravách dispozície. Navrhujeme praktické riešenia, ktoré pomôžu priestoru pôsobiť čistejšie a lepšie pripravené na dokončenie.",
-    metaTitle: "Sadrokartón Dubnica nad Váhom | Priečky a podhľady | Martiš MV",
-    metaDescription:
-      "Sadrokartónové priečky, podhľady a zakrytie rozvodov v Dubnici nad Váhom, Ilave, Trenčíne a okolí. Obhliadka a realizácia.",
-    localities,
-    benefits: [
-      "sadrokartónové priečky a podhľady",
-      "zakrytie rozvodov a úprava dispozície",
-      "čistejší interiér pred finálnymi prácami",
-      "nadväznosť na omietky, podlahy a dvere"
-    ],
-    processSteps: defaultProcessSteps,
-    faq: makeFaq(
-      "sadrokartón",
-      "Cenu ovplyvňuje plocha, typ konštrukcie, výška, členitosť, izolácia, zakrytie rozvodov a požadovaná pripravenosť pred finálnou úpravou."
-    ),
-    primaryCta: "Rezervovať obhliadku",
-    secondaryCta: "Poslať fotky priestoru",
-    paymentType: "reservation_fee",
-    jsonLd: {
-      serviceType: "Sadrokartónové priečky, podhľady a interiérové úpravy",
-      areaServed: localities,
-      providerName: company.name
-    }
-  },
-  {
-    slug: "rekonstrukcie-interieru",
+    slug: "odhad-ceny-nehnutelnosti",
     cardImage: "/images/sluzby/rekonstrukcie-na-kluc.webp",
     cardPreview:
-      "Kompletné rekonštrukcie interiéru spájajú obklady, dlažby, podlahy, sanitu, sadrokartón, dvere a finálne detaily.",
-    cardImageAlt: "Dokončený svetlý interiér po rekonštrukcii",
-    label: "Rekonštrukcie interiéru na kľúč",
-    shortLabel: "Rekonštrukcie",
-    h1: "Rekonštrukcie interiéru na kľúč v Dubnici nad Váhom a okolí",
+      "Bezplatny odhad ceny pre majitelov, ktori zvazuju predaj bytu, domu alebo pozemku.",
+    cardImageAlt: "Neutralny placeholder pre realitny odhad",
+    label: "Odhad ceny nehnutelnosti zdarma",
+    shortLabel: "Odhad ceny",
+    h1: "Zistite realnu cenu nehnutelnosti este pred predajom",
     intro:
-      "Kompletné rekonštrukcie interiéru spájajú obklady, dlažby, podlahy, sanitu, sadrokartón, dvere a finálne detaily do jedného súvislého postupu. Cieľom je premeniť starší priestor na hotové bývanie bez zbytočného chaosu.",
-    metaTitle: "Rekonštrukcie interiéru na kľúč Dubnica nad Váhom | Martiš MV",
+      "Hlavny funnel webu pomaha zachytit majitelov, ktori uvazuju nad predajom. Cielom je ziskat kvalifikovane udaje o nehnutelnosti a otvorit obchodny rozhovor skor, nez majitel skonci iba pri portaloch.",
+    metaTitle: "Odhad ceny nehnutelnosti zdarma | Jakub Chovanec",
     metaDescription:
-      "Kompletné rekonštrukcie interiéru na kľúč v Dubnici nad Váhom, Ilave, Trenčíne a okolí. Obhliadka, ponuka, realizácia a odovzdanie.",
-    localities,
+      "Bezplatny odhad ceny bytu, domu alebo pozemku pre majitelov, ktori zvazuju predaj cez modernu realitnu strategiu.",
+    localities: serviceArea,
     benefits: [
-      "viac interiérových prác v jednom postupe",
-      "menej koordinácie pre zákazníka",
-      "jasný rozsah pred začiatkom realizácie",
-      "vhodné pre byty, domy, kúpeľne a väčšie úpravy"
+      "prvy kontakt s majitelom este pred rozhodnutim predavat",
+      "zaklad pre cenovu strategiu a prezentaciu nehnutelnosti",
+      "kvalifikacia predajneho horizontu, stavu a motivacie",
+      "najvyssi obchodny potencial celeho webu"
     ],
-    processSteps: defaultProcessSteps,
-    faq: makeFaq(
-      "rekonštrukciu interiéru na kľúč",
-      "Cenu ovplyvňuje rozsah prác, stav priestoru, materiály, počet profesií, termín, dostupnosť priestoru a miera dokončenia, ktorú zákazník očakáva."
-    ),
-    primaryCta: "Dohodnúť konzultáciu",
-    secondaryCta: "Poslať fotky priestoru",
+    processSteps: sellerEstimateSteps,
+    faq: [
+      {
+        question: "Je odhad ceny zavazny?",
+        answer:
+          "Nie. Ide o bezplatny vstupny odhad a odporucanie dalsieho postupu pred osobnou alebo online konzultaciou."
+      },
+      {
+        question: "Ake udaje su potrebne?",
+        answer:
+          "Typ nehnutelnosti, lokalita, vymera, stav, planovany termin predaja a kontaktne udaje."
+      }
+    ],
+    primaryCta: "Zisti cenu nehnutelnosti zdarma",
+    secondaryCta: "Rezervovat konzultaciu",
     paymentType: "consultation_fee",
     jsonLd: {
-      serviceType: "Kompletné interiérové rekonštrukcie na kľúč",
-      areaServed: localities,
+      serviceType: "Real estate price estimate",
+      areaServed: serviceArea,
+      providerName: company.name
+    }
+  },
+  {
+    slug: "predaj-nehnutelnosti",
+    cardImage: "/images/prace/praca.webp",
+    cardPreview:
+      "Strategia predaja, premium prezentacia, video obsah, inzercia, kvalifikovane obhliadky a vyjednavanie.",
+    cardImageAlt: "Neutralny placeholder pre realitny predaj",
+    label: "Predaj nehnutelnosti",
+    shortLabel: "Predaj",
+    h1: "Moderny predaj nehnutelnosti cez video, strategiu a data",
+    intro:
+      "Predaj nie je iba zverejnenie inzeratu. Dobre nastaveny proces spaja cenu, prezentaciu, distribuciu, kvalifikaciu zaujemcov, vyjednavanie a bezpecne prevedenie transakcie.",
+    metaTitle: "Predaj nehnutelnosti | Jakub Chovanec Reality",
+    metaDescription:
+      "Moderny predaj bytu, domu alebo pozemku cez cenovu strategiu, premium prezentaciu, video a kvalifikovane obhliadky.",
+    localities: serviceArea,
+    benefits: [
+      "cenova strategia namiesto nahodneho odhadu",
+      "premium prezentacia pre vyssi dojem a doveru",
+      "video a socialne siete ako distribucna vyhoda",
+      "vyjednavanie s cielom nepredavat pod hodnotou"
+    ],
+    processSteps: [
+      {
+        title: "Cena",
+        text: "Nastavime cenove rozpatie a strategiu podla trhu, lokality a stavu nehnutelnosti."
+      },
+      {
+        title: "Prezentacia",
+        text: "Pripravime nehnutelnost, text, foto/video koncept a argumenty pre kupujucich."
+      },
+      {
+        title: "Predaj",
+        text: "Riesime inzerciu, kvalifikovane obhliadky, komunikaciu, vyjednavanie a dalsie kroky."
+      }
+    ],
+    faq: [
+      {
+        question: "Preco nestaci dat nehnutelnost iba na portal?",
+        answer:
+          "Portal je distribucny kanal, nie predajna strategia. Rozhoduje cena, prezentacia, dopyt, vyjednavanie a kvalita zaujemcov."
+      },
+      {
+        question: "Pomaha video pri predaji?",
+        answer:
+          "Ano, najma pri budovani dovery, odliseni ponuky a pritiahnuti pozornosti mimo realitnych portalov."
+      }
+    ],
+    primaryCta: "Zisti cenu nehnutelnosti zdarma",
+    secondaryCta: "Rezervovat konzultaciu",
+    paymentType: "consultation_fee",
+    jsonLd: {
+      serviceType: "Real estate sales strategy",
+      areaServed: serviceArea,
+      providerName: company.name
+    }
+  },
+  {
+    slug: "databaza-kupujucich",
+    cardImage: "/images/detail/background2.webp",
+    cardPreview:
+      "Databaza ludi, ktori hladaju byt, dom alebo pozemok podla lokality, rozpoctu a financovania.",
+    cardImageAlt: "Neutralny placeholder pre databazu kupujucich",
+    label: "Databaza kupujucich",
+    shortLabel: "Kupujuci",
+    h1: "Hladate nehnutelnost? Zaradte sa do databazy kupujucich",
+    intro:
+      "Kupujuci mozu zanechat lokalitu, rozpocet, typ nehnutelnosti, sposob financovania a casovy horizont. Pre Jakuba to vytvara vlastny zoznam dopytu mimo portalov.",
+    metaTitle: "Databaza kupujucich | Jakub Chovanec Reality",
+    metaDescription:
+      "Databaza kupujucich pre ludi, ktori hladaju byt, dom alebo pozemok a chcu byt kontaktovani pri vhodnej ponuke.",
+    localities: serviceArea,
+    benefits: [
+      "vlastny dopyt pre buduce predajne prilezitosti",
+      "lepsie parovanie kupujucich s ponukami",
+      "rychlejsie overenie financovania a casoveho horizontu",
+      "hodnota pre majitelov, ktori chcu predavat efektivne"
+    ],
+    processSteps: [
+      {
+        title: "Dopyt",
+        text: "Kupujuci doplni lokalitu, rozpocet, typ nehnutelnosti a sposob financovania."
+      },
+      {
+        title: "Kvalifikacia",
+        text: "Dopyt sa rozdeli podla pripravenosti, realnosti rozpoctu a casoveho horizontu."
+      },
+      {
+        title: "Prepojenie",
+        text: "Pri vhodnej ponuke moze Jakub rychlo kontaktovat relevantnych zaujemcov."
+      }
+    ],
+    faq: [
+      {
+        question: "Je zapis do databazy plateny?",
+        answer: "Nie. V tejto faze ide o dopytovy funnel a pripravu na Phase 4 formular."
+      },
+      {
+        question: "Co mam doplnit ako kupujuci?",
+        answer: "Lokalitu, rozpocet, typ nehnutelnosti, financovanie, casovy horizont a kontakt."
+      }
+    ],
+    primaryCta: "Hladam nehnutelnost",
+    secondaryCta: "Kontaktovat Jakuba",
+    jsonLd: {
+      serviceType: "Buyer database",
+      areaServed: serviceArea,
+      providerName: company.name
+    }
+  },
+  {
+    slug: "vybrane-ponuky",
+    cardImage: "/images/proof/dokaz-pred-kontaktom.webp",
+    cardPreview:
+      "Bezpecne placeholder karty pre vybrane ponuky, pripravene na neskorsie realne nehnutelnosti.",
+    cardImageAlt: "Neutralny placeholder pre vybrane realitne ponuky",
+    label: "Vybrane ponuky",
+    shortLabel: "Ponuky",
+    h1: "Vybrane ponuky a property landing pages",
+    intro:
+      "Sekcia ukazuje, ako budu neskor prezentovane konkretne nehnutelnosti: video, fotky, lokalita, benefity, mapa a jasna vyzva na rezervaciu obhliadky.",
+    metaTitle: "Vybrane ponuky | Jakub Chovanec Reality",
+    metaDescription:
+      "Placeholder vybranych realitnych ponuk pripraveny pre buduce property landing pages a rezervacie obhliadok.",
+    localities: serviceArea,
+    benefits: [
+      "ukazka premium prezentacie bez cudzich fotografii",
+      "priestor pre buduce samostatne landing pages",
+      "CTA pre rezervaciu obhliadky a kvalifikaciu zaujemcov",
+      "dovera pre majitelov aj kupujucich"
+    ],
+    processSteps: [
+      {
+        title: "Karta",
+        text: "Zakladne udaje, lokalita, cena placeholder a hlavna vyhoda."
+      },
+      {
+        title: "Detail",
+        text: "Neskor pribudne video, foto, mapa, benefity a otazky kupujucich."
+      },
+      {
+        title: "Obhliadka",
+        text: "Zaujemca sa kvalifikuje pred tym, nez sa rezervuje termin."
+      }
+    ],
+    faq: [
+      {
+        question: "Su ponuky realne?",
+        answer: "Nie. Vo Phase 2 ide iba o bezpecne placeholder karty bez cudzich obrazkov."
+      },
+      {
+        question: "Kedy vzniknu realne landing pages?",
+        answer: "Az po dodani schvalenych podkladov alebo v neskorsej faze projektu."
+      }
+    ],
+    primaryCta: "Pozriet placeholder ponuky",
+    secondaryCta: "Rezervovat obhliadku",
+    jsonLd: {
+      serviceType: "Selected real estate listings",
+      areaServed: serviceArea,
+      providerName: company.name
+    }
+  },
+  {
+    slug: "rezervacia-obhliadky",
+    cardImage: "/images/contact/contact-background.webp",
+    cardPreview:
+      "Kvalifikovana ziadost o obhliadku pre ludi, ktori maju zaujem o konkretnu ponuku.",
+    cardImageAlt: "Neutralny placeholder pre rezervaciu obhliadky",
+    label: "Rezervacia obhliadky",
+    shortLabel: "Obhliadka",
+    h1: "Rezervacia obhliadky s kvalifikaciou zaujemcu",
+    intro:
+      "Viewing request funnel pomaha znizit chaos. Pred obhliadkou je vhodne vediet, o aku nehnutelnost ide, aky ma zaujemca rozpocet, financovanie a casovy horizont.",
+    metaTitle: "Rezervacia obhliadky | Jakub Chovanec Reality",
+    metaDescription:
+      "Kvalifikovana ziadost o obhliadku nehnutelnosti pre zaujemcov o byt, dom alebo pozemok.",
+    localities: serviceArea,
+    benefits: [
+      "menej nekvalifikovanych obhliadok",
+      "lepsia disciplina zaujemcov",
+      "rychlejsie rozhodovanie pri silnych kupujucich",
+      "lepsia ochrana casu majitela aj realitaka"
+    ],
+    processSteps: consultationSteps,
+    faq: [
+      {
+        question: "Je rezervacia obhliadky automaticky potvrdena?",
+        answer: "Nie. Po odoslani ziadosti treba termin este potvrdit."
+      },
+      {
+        question: "Preco kvalifikovat zaujemcu?",
+        answer:
+          "Aby obhliadky davali zmysel pre predavajuceho, kupujuceho aj realitneho maklera."
+      }
+    ],
+    primaryCta: "Rezervovat obhliadku",
+    secondaryCta: "Kontaktovat Jakuba",
+    paymentType: "reservation_fee",
+    jsonLd: {
+      serviceType: "Property viewing request",
+      areaServed: serviceArea,
+      providerName: company.name
+    }
+  },
+  {
+    slug: "realitna-konzultacia",
+    cardImage: "/hero/background-interior.webp",
+    cardPreview:
+      "Platena 1:1 konzultacia pred predajom, kupou alebo investicnym rozhodnutim.",
+    cardImageAlt: "Neutralny placeholder pre realitnu konzultaciu",
+    label: "Realitna konzultacia 1:1",
+    shortLabel: "Konzultacia",
+    h1: "Realitna konzultacia 1:1 - 60 min",
+    intro:
+      "Sekundarny produkt pre ludi, ktori chcu konkretne odporucanie pred predajom, kupou alebo investiciou. Konzultacia filtruje vaznych zaujemcov a vytvara okamzity prijem.",
+    metaTitle: "Realitna konzultacia 1:1 | Jakub Chovanec",
+    metaDescription:
+      "Platena 60-minutova realitna konzultacia pred predajom, kupou alebo investicnym rozhodnutim.",
+    localities: serviceArea,
+    benefits: [
+      "rychle odporucanie bez plneho predajneho procesu",
+      "filter pre vaznych klientov",
+      "sekundarny prijem cez Stripe v neskorsej faze",
+      "vhodne pred predajom, kupou alebo investiciou"
+    ],
+    processSteps: consultationSteps,
+    faq: [
+      {
+        question: "Je konzultacia hlavny produkt webu?",
+        answer: "Nie. Hlavny produkt je seller estimate funnel, konzultacia je sekundarna."
+      },
+      {
+        question: "Bude platba riesena cez Stripe?",
+        answer: "Ano, ale uprava Stripe produktu patri az do Phase 4."
+      }
+    ],
+    primaryCta: "Rezervovat konzultaciu",
+    secondaryCta: "Zistit cenu zdarma",
+    paymentType: "consultation_fee",
+    jsonLd: {
+      serviceType: "Real estate consultation",
+      areaServed: serviceArea,
+      providerName: company.name
+    }
+  },
+  {
+    slug: "realitny-start",
+    cardImage: "/images/footer/footer-background.webp",
+    cardPreview:
+      "Maly mentoring teaser pre ludi, ktori chcu pochopit zaciatky v realitach. Nie je hlavnym produktom.",
+    cardImageAlt: "Neutralny placeholder pre realitny mentoring",
+    label: "Realitny start 1:1",
+    shortLabel: "Mentoring",
+    h1: "Realitny start 1:1 ako sekundarny mentoring",
+    intro:
+      "Mentoring moze neskor monetizovat osobnu znacku, ale nesmie prebit hlavny seller funnel. Vo Phase 2 ostava iba ako maly teaser.",
+    metaTitle: "Realitny start 1:1 | Jakub Chovanec",
+    metaDescription:
+      "Sekundarny mentoringovy teaser pre zaciatky v realitach, bez prebitia hlavneho seller funnelu.",
+    localities: serviceArea,
+    benefits: [
+      "monetizuje osobnu znacku neskor",
+      "ostava mensi ako seller funnel",
+      "vhodne pre zaujemcov o realitny start",
+      "neodvadza pozornost od majitelov nehnutelnosti"
+    ],
+    processSteps: consultationSteps,
+    faq: [
+      {
+        question: "Je mentoring hlavny biznis webu?",
+        answer: "Nie. Je to iba sekundarna ponuka, hlavny biznis je predaj nehnutelnosti a seller leads."
+      },
+      {
+        question: "Bude mentoring plateny?",
+        answer: "Mozno neskor. Vo Phase 2 je to iba obsahovy teaser."
+      }
+    ],
+    primaryCta: "Mam zaujem o mentoring",
+    secondaryCta: "Najprv konzultacia",
+    paymentType: "consultation_fee",
+    jsonLd: {
+      serviceType: "Real estate mentoring",
+      areaServed: serviceArea,
       providerName: company.name
     }
   }
@@ -403,4 +435,4 @@ export function getService(slug: string) {
   return services.find((service) => service.slug === slug);
 }
 
-export const processSteps = defaultProcessSteps.map((step) => step.title);
+export const processSteps = sellerEstimateSteps.map((step) => step.title);

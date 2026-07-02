@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 type LogoVariant = "header" | "footer" | "card";
@@ -14,31 +13,23 @@ const logoSizes: Record<LogoVariant, string> = {
   card: "h-16 w-16 sm:h-20 sm:w-20"
 };
 
-const logoImage = (
-  variant: LogoVariant,
-  className = ""
-) => (
-  <span className={`relative block shrink-0 ${logoSizes[variant]} ${className}`}>
-    <Image
-      src="/images/brand/martis_mv.webp"
-      alt="Martiš MV – interiérové rekonštrukcie"
-      width={1254}
-      height={1254}
-      priority={variant === "header"}
-      sizes={variant === "header" ? "56px" : variant === "footer" ? "80px" : "80px"}
-      className="h-full w-full object-contain"
-    />
+const logoMark = (variant: LogoVariant, className = "") => (
+  <span
+    className={`grid shrink-0 place-items-center rounded-full border border-black/10 bg-[#11100e] font-serif font-semibold text-[#fffaf0] shadow-[0_16px_42px_rgba(17,16,14,0.16)] ${logoSizes[variant]} ${className}`}
+    aria-hidden="true"
+  >
+    JC
   </span>
 );
 
 export function Logo({ variant = "header", className = "" }: LogoProps) {
   if (variant === "header") {
     return (
-      <Link href="/" aria-label="Martiš MV domov" className="inline-flex items-center">
-        {logoImage(variant, className)}
+      <Link href="/" aria-label="Jakub Chovanec Reality domov" className="inline-flex items-center">
+        {logoMark(variant, className)}
       </Link>
     );
   }
 
-  return logoImage(variant, className);
+  return logoMark(variant, className);
 }

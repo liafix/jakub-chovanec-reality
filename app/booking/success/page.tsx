@@ -5,8 +5,8 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
-    title: "Platba prijatá | Martiš MV",
-    description: "Ďakujeme. Platba bola prijatá a Martiš MV sa ozve k potvrdeniu praktických detailov.",
+    title: "Platba prijatá | Jakub Chovanec Reality",
+    description: "Ďakujeme. Platba bola prijatá a ozveme sa k potvrdeniu praktických detailov.",
     path: "/booking/success"
   }),
   robots: {

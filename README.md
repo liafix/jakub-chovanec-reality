@@ -1,16 +1,16 @@
-# Martis MV Website
+# Jakub Chovanec Reality Website
 
-Production-oriented Next.js website for `Martiš MV` interior reconstruction services.
+Premium Next.js website for Jakub Chovanec's real estate personal brand and lead engine.
 
 The project includes:
 
-- premium landing and service pages,
-- local SEO landing pages,
-- booking flow with Stripe Checkout integration,
+- seller price-estimate funnel architecture,
+- buyer database and viewing-request content paths,
+- paid consultation booking foundation,
+- reusable premium sections and motion patterns,
+- Stripe Checkout foundation for later Phase 4 revenue flow work,
 - Drizzle database schema and migrations,
-- server-only email notification support,
-- sitemap, robots, metadata, and Open Graph assets,
-- desktop 3D/motion layer with reduced-motion and mobile fallbacks.
+- sitemap, robots, metadata, and Open Graph placeholders.
 
 ## Requirements
 
@@ -22,11 +22,11 @@ The project includes:
 npm install
 ```
 
-## Local Server Policy
+## Local Development
 
-Do not run this project on a local development server. This website is verified with production builds and deployed through Vercel.
-
-Port `3000` is reserved for Weblore.ai and must not be used by this project.
+```bash
+npm run dev -- --port 3010
+```
 
 ## Build
 
@@ -34,13 +34,8 @@ Port `3000` is reserved for Weblore.ai and must not be used by this project.
 npm run build
 ```
 
-## Production Asset Notes
+## Phase Notes
 
-Phase 6 removed unused source/demo assets and switched large runtime imagery to optimized WebP files:
-
-- active hero image: `public/hero/background-interior.webp`
-- active WebGL fallback image: `public/images/floating_glass.webp`
-- required runtime model: `public/models/ducato_optimized.glb`
-- stable social image: `public/og/martis-mv-og.jpg`
-
-Do not deploy local ballast such as `.git`, `node_modules`, `.next`, `.cursor`, `.agents`, `docs`, `textures`, `renders`, `tools`, root source images/models, development logs, or `tsconfig.tsbuildinfo`. See `.vercelignore` and `docs/phase6/performance-cleanup.md` for the Phase 6 cleanup record.
+Phase 2 migrates visible content architecture from the old copied template into a real estate lead engine. Stripe logic,
+database schema, API routes, public assets, docs, and global motion systems are intentionally kept conservative until
+their later phases.

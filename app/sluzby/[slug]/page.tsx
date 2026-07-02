@@ -36,7 +36,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     faqJsonLd(service),
     breadcrumbJsonLd([
       { name: "Domov", path: "/" },
-      { name: "Služby", path: "/sluzby" },
+      { name: "Realitné funnely", path: "/sluzby" },
       { name: service.label, path: `/sluzby/${service.slug}` }
     ])
   ];
@@ -58,7 +58,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <h1 className="mt-4 max-w-4xl text-5xl font-black leading-tight">{service.h1}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-black/66">{service.intro}</p>
 
-          <div className="mt-8 flex flex-wrap gap-2" aria-label="Obsluhované lokality">
+          <div className="mt-8 flex flex-wrap gap-2" aria-label="Realitné oblasti">
             {service.localities.map((locality) => (
               <span key={locality} className="rounded-md border border-black/10 bg-white/60 px-3 py-2 text-sm font-bold">
                 {locality}
@@ -67,7 +67,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           </div>
 
           <section className="mt-16">
-            <h2 className="text-3xl font-black">Čo je dôležité pri tejto službe</h2>
+            <h2 className="text-3xl font-black">Prečo tento funnel zarába</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {service.benefits.map((benefit) => (
                 <div key={benefit} className="flex gap-3 rounded-md border border-black/10 bg-white/62 p-5">
@@ -79,8 +79,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           </section>
 
           <section className="mt-16">
-            <h2 className="text-3xl font-black">Ako pracujeme</h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-4">
+            <h2 className="text-3xl font-black">Ako funguje</h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
               {service.processSteps.map((step, index) => (
                 <div key={step.title} className="rounded-md border border-black/10 bg-white/62 p-5">
                   <span className="text-xs font-black text-black/36">{String(index + 1).padStart(2, "0")}</span>
@@ -107,12 +107,15 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <div className="glass-surface rounded-md p-5">
             <CheckCircle2 className="text-[#257a57]" size={28} aria-hidden="true" />
-            <p className="mt-5 text-2xl font-black">Začnite jasným ďalším krokom.</p>
+            <p className="mt-5 text-2xl font-black">Začnite obchodne najbližším krokom.</p>
             <p className="mt-3 text-sm leading-6 text-black/62">
-              Vyplníte krátky formulár, vyberiete službu a pokračujete na bezpečnú platbu za obhliadku alebo konzultáciu.
-              Po prijatí požiadavky sa ozveme k praktickému potvrdeniu detailov.
+              Vo Phase 2 ide hlavne o obsahový funnel. Funkčné formuláre pre odhad ceny a databázu kupujúcich prídu vo
+              Phase 4; platená konzultácia zatiaľ používa existujúci booking flow.
             </p>
-            <Link href={`/booking?service=${service.slug}`} className="btn-primary mt-6 w-full">
+            <Link
+              href={service.slug === "realitna-konzultacia" ? "/booking?service=realitna-konzultacia" : "/#odhad-ceny"}
+              className="btn-primary mt-6 w-full"
+            >
               {service.primaryCta}
             </Link>
             <a href={company.whatsappHref} target="_blank" rel="noreferrer" className="btn-secondary mt-3 w-full">

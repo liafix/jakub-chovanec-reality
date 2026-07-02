@@ -30,14 +30,13 @@ export const DEFERRED_PAYMENT_TYPES = ["project_deposit", "stage_payment"] as co
 export type DeferredPaymentType = (typeof DEFERRED_PAYMENT_TYPES)[number];
 
 export const SERVICE_SLUGS = [
-  "obklady",
-  "dlazby",
-  "omietky",
-  "podlahy",
-  "sanita",
-  "dvere-zarubne-kovania",
-  "sadrokarton",
-  "rekonstrukcie-interieru"
+  "odhad-ceny-nehnutelnosti",
+  "predaj-nehnutelnosti",
+  "databaza-kupujucich",
+  "vybrane-ponuky",
+  "rezervacia-obhliadky",
+  "realitna-konzultacia",
+  "realitny-start"
 ] as const;
 
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];

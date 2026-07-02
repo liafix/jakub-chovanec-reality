@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: absoluteUrl(page.path),
     lastModified: now,
     changeFrequency: "monthly",
-    priority: page.path === "/rekonstrukcie-dubnica-nad-vahom" ? 0.9 : 0.75
+    priority: 0.75
   }));
 
   return [...staticRoutes, ...serviceRoutes, ...localRoutes];

@@ -4,9 +4,9 @@ import { services } from "@/lib/content/services";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Služby | Rekonštrukcie interiéru Dubnica nad Váhom | Martiš MV",
+  title: "Realitné funnely | Jakub Chovanec Reality",
   description:
-    "Prehľad služieb Martiš MV: obklady, dlažby, omietky, podlahy, sanita, dvere, sadrokartón a rekonštrukcie interiéru na kľúč.",
+    "Prehľad realitných funnelov: odhad ceny zdarma, predaj nehnuteľnosti, databáza kupujúcich, obhliadky, konzultácia a mentoring teaser.",
   path: "/sluzby"
 });
 
@@ -30,13 +30,13 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
       <section className="container py-16">
-        <p className="text-sm font-black uppercase text-[#e44f22]">Služby</p>
+        <p className="text-sm font-black uppercase text-[#e44f22]">Realitný systém</p>
         <h1 className="mt-4 max-w-3xl text-5xl font-black leading-tight">
-          Interiérové práce pre Dubnicu nad Váhom a okolie.
+          Funnely, ktoré premieňajú pozornosť na realitné príležitosti.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-black/64">
-          Vyberte službu a pozrite si, čo je pri nej dôležité ešte pred cenovou ponukou. Nájdete tu postup, praktické
-          otázky aj ďalší krok pre obhliadku alebo konzultáciu.
+          Hlavným cieľom je zachytiť majiteľov pred predajom. Konzultácia, kupujúci, obhliadky a mentoring sú podporné
+          systémy, ktoré rozširujú obchodný potenciál webu.
         </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
