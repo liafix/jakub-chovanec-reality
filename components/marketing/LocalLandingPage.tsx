@@ -20,7 +20,7 @@ function localPageJsonLd(page: LocalPage) {
         "@type": "Service",
         name: page.h1,
         provider: {
-          "@type": "HomeAndConstructionBusiness",
+          "@type": "RealEstateAgent",
           name: company.name,
           url: absoluteUrl("/")
         },
@@ -28,7 +28,7 @@ function localPageJsonLd(page: LocalPage) {
           "@type": "Place",
           name: page.location
         },
-        serviceType: "Interiérové rekonštrukcie"
+        serviceType: "Realitné služby"
       }
     },
     {
@@ -128,7 +128,7 @@ export function LocalLandingPage({ page }: LocalLandingPageProps) {
             <MapPin className="text-[#e44f22]" size={28} aria-hidden="true" />
             <p className="mt-5 text-2xl font-black">{page.location}</p>
             <p className="mt-3 text-sm leading-6 text-black/62">
-              V tejto lokalite vieme podľa rozsahu riešiť obhliadku, konzultáciu alebo konkrétne interiérové práce.
+              V tejto lokalite vieme podľa rozsahu riešiť odhad ceny, konzultáciu alebo konkrétny realitný ďalší krok.
             </p>
             <Link href={`/booking?location=${encodeURIComponent(page.location)}`} className="btn-primary mt-6 w-full">
               Rezervovať obhliadku

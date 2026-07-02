@@ -69,14 +69,14 @@ export function buildServiceMetadata(service: Service): Metadata {
 export function localBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
+    "@type": "RealEstateAgent",
     name: company.name,
     legalName: company.legalName,
     telephone: company.phoneDisplay,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "A. Kmeša 939/28",
-      addressLocality: "Dubnica nad Váhom",
+      streetAddress: company.legalAddress,
+      addressLocality: company.city,
       addressCountry: "SK"
     },
     areaServed: company.serviceArea.map((area) => ({
@@ -93,7 +93,7 @@ export function localBusinessJsonLd() {
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Interiérové rekonštrukcie a služby",
+      name: "Realitné služby a lead funnely",
       itemListElement: services.map((service) => ({
         "@type": "Offer",
         itemOffered: {
@@ -115,7 +115,7 @@ export function serviceJsonLd(service: Service) {
     serviceType: service.jsonLd.serviceType,
     description: service.intro,
     provider: {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": "RealEstateAgent",
       name: service.jsonLd.providerName,
       url: getSiteUrl()
     },

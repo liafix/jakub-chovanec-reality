@@ -4,8 +4,8 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
-    title: "Platba nebola dokončená | Martiš MV",
-    description: "Platba nebola dokončená. Môžete sa vrátiť k objednávke obhliadky alebo nás kontaktovať telefonicky.",
+    title: "Platba nebola dokončená | Jakub Chovanec Reality",
+    description: "Platba nebola dokončená. Môžete sa vrátiť k rezervácii konzultácie alebo nás kontaktovať telefonicky.",
     path: "/booking/cancel"
   }),
   robots: {

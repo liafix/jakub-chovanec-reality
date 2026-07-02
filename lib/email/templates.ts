@@ -81,7 +81,7 @@ function operationalRows(details: BookingEmailDetails) {
     field("Meno", details.customerName),
     field("Telefón", details.customerPhone),
     field("E-mail", details.customerEmail),
-    field("Služba", serviceLabel(details.service)),
+    field("Realitný zámer", serviceLabel(details.service)),
     field("Lokalita", details.location),
     field("Preferovaný dátum", details.preferredDate),
     field("Preferovaný čas", details.preferredTime),
@@ -98,7 +98,7 @@ function operationalHtmlRows(details: BookingEmailDetails) {
     htmlField("Meno", details.customerName),
     htmlField("Telefón", details.customerPhone),
     htmlField("E-mail", details.customerEmail),
-    htmlField("Služba", serviceLabel(details.service)),
+    htmlField("Realitný zámer", serviceLabel(details.service)),
     htmlField("Lokalita", details.location),
     htmlField("Preferovaný dátum", details.preferredDate),
     htmlField("Preferovaný čas", details.preferredTime),
@@ -111,11 +111,11 @@ function operationalHtmlRows(details: BookingEmailDetails) {
 }
 
 export function ownerPaidBookingTemplate(details: BookingEmailDetails): EmailContent {
-  const intro = "Stripe webhook potvrdil platbu za rezerváciu alebo konzultáciu.";
+  const intro = "Stripe webhook potvrdil platbu za realitnú rezerváciu alebo konzultáciu.";
   const nextAction = "Ďalší krok: kontaktujte zákazníka a potvrďte detaily termínu.";
 
   return {
-    subject: "Nová zaplatená rezervácia - Martiš MV",
+    subject: "Nová zaplatená realitná rezervácia - Jakub Chovanec Reality",
     text: `${intro}\n\n${operationalRows(details)}\n\n${nextAction}`,
     html: htmlShell("Nová zaplatená rezervácia", intro, operationalHtmlRows(details), nextAction)
   };
@@ -124,10 +124,10 @@ export function ownerPaidBookingTemplate(details: BookingEmailDetails): EmailCon
 export function customerPaidBookingTemplate(details: BookingEmailDetails): EmailContent {
   const amount = formatAmount(details.amountCents, details.currency);
   const intro = "Ďakujeme, prijali sme vašu platbu a požiadavku.";
-  const footer = "Tím Martiš MV vás bude kontaktovať a potvrdí detaily, ak bude potrebné niečo doplniť.";
+  const footer = "Jakub Chovanec Reality vás bude kontaktovať a potvrdí detaily, ak bude potrebné niečo doplniť.";
 
   const rows = [
-    field("Služba", serviceLabel(details.service)),
+    field("Realitný zámer", serviceLabel(details.service)),
     field("Lokalita", details.location),
     field("Preferovaný dátum", details.preferredDate),
     field("Preferovaný čas", details.preferredTime),
@@ -136,7 +136,7 @@ export function customerPaidBookingTemplate(details: BookingEmailDetails): Email
   ].join("\n");
 
   const htmlRows = [
-    htmlField("Služba", serviceLabel(details.service)),
+    htmlField("Realitný zámer", serviceLabel(details.service)),
     htmlField("Lokalita", details.location),
     htmlField("Preferovaný dátum", details.preferredDate),
     htmlField("Preferovaný čas", details.preferredTime),
@@ -145,7 +145,7 @@ export function customerPaidBookingTemplate(details: BookingEmailDetails): Email
   ].join("");
 
   return {
-    subject: "Potvrdenie platby a požiadavky - Martiš MV",
+    subject: "Potvrdenie platby a realitnej požiadavky - Jakub Chovanec Reality",
     text: `${intro}\n\n${rows}\n\n${footer}`,
     html: htmlShell("Potvrdenie platby a požiadavky", intro, htmlRows, footer)
   };
@@ -156,7 +156,7 @@ export function ownerLeadTemplate(details: BookingEmailDetails): EmailContent {
   const nextAction = "Ďalší krok: overte požiadavku a kontaktujte zákazníka.";
 
   return {
-    subject: "Nový lead z webu - Martiš MV",
+    subject: "Nový realitný lead z webu - Jakub Chovanec Reality",
     text: `${intro}\n\n${operationalRows(details)}\n\n${nextAction}`,
     html: htmlShell("Nový lead z webu", intro, operationalHtmlRows(details), nextAction)
   };
@@ -167,7 +167,7 @@ export function ownerExpiredCheckoutTemplate(details: BookingEmailDetails): Emai
   const nextAction = "Ďalší krok: ak lead vyzerá hodnotne, kontaktujte zákazníka a ponúknite pomoc s dokončením.";
 
   return {
-    subject: "Nedokončená platba - Martiš MV",
+    subject: "Nedokončená realitná platba - Jakub Chovanec Reality",
     text: `${intro}\n\n${operationalRows(details)}\n\n${nextAction}`,
     html: htmlShell("Nedokončená platba", intro, operationalHtmlRows(details), nextAction)
   };

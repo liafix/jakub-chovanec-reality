@@ -25,10 +25,13 @@ type CheckoutResponse =
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneRegex = /^[0-9+\s]{9,16}$/;
 const attributionFields = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
+const bookingServices = services.filter((service) =>
+  ["rezervacia-obhliadky", "realitna-konzultacia"].includes(service.slug)
+);
 
 const paymentDescriptions: Record<PaymentType, string> = {
-  reservation_fee: "Platený rezervačný krok za obhliadku priestoru. Pomôže nám vyhradiť čas na seriózne posúdenie rozsahu.",
-  consultation_fee: "Platená konzultácia pre širší rozsah, výber riešení alebo technické otázky pred finálnou dohodou."
+  reservation_fee: "Platený rezervačný krok pre kvalifikovanú obhliadku alebo seriózne posúdenie konkrétnej ponuky.",
+  consultation_fee: "Platená realitná konzultácia pre predaj, kúpu, investíciu, cenu alebo vyjednávanie."
 };
 
 function getServicePaymentType(serviceSlug: string): PaymentType {
@@ -78,7 +81,7 @@ export function BookingForm() {
     if (!String(data.get("name") || "").trim()) nextErrors.name = "Zadajte meno.";
     if (!phoneRegex.test(phone.trim())) nextErrors.phone = "Zadajte platné telefónne číslo.";
     if (email && !emailRegex.test(email.trim())) nextErrors.email = "Zadajte platný email.";
-    if (!String(data.get("service") || "")) nextErrors.service = "Vyberte službu.";
+    if (!String(data.get("service") || "")) nextErrors.service = "Vyberte realitný zámer.";
     if (!isPaymentType(selectedPaymentType)) nextErrors.paymentType = "Vyberte typ platby.";
     if (!String(data.get("location") || "").trim()) nextErrors.location = "Zadajte lokalitu.";
     if (!String(data.get("date") || "")) nextErrors.date = "Vyberte preferovaný dátum.";
@@ -176,12 +179,12 @@ export function BookingForm() {
       </Field>
 
       <div className="grid gap-5 md:grid-cols-2">
-        <Field label="Služba" name="service" error={errors.service}>
+        <Field label="Realitný zámer" name="service" error={errors.service}>
           <select className="field-input" id="service" name="service" required value={selectedService} onChange={handleServiceChange}>
             <option value="" disabled>
-              Vyberte službu
+              Vyberte zámer
             </option>
-            {services.map((service) => (
+            {bookingServices.map((service) => (
               <option key={service.slug} value={service.slug}>
                 {service.label}
               </option>
@@ -189,14 +192,15 @@ export function BookingForm() {
           </select>
         </Field>
         <Field label="Lokalita" name="location" error={errors.location}>
-          <input className="field-input" id="location" name="location" required placeholder="Dubnica nad Váhom" />
+          <input className="field-input" id="location" name="location" required placeholder="Lokalita nehnuteľnosti" />
         </Field>
       </div>
 
       <fieldset className="grid gap-3">
         <legend className="text-sm font-black">Vyberte ďalší krok</legend>
         <p className="text-sm leading-6 text-black/58">
-          Platba rezervuje obhliadku alebo konzultáciu. Nenahrádza finálnu dohodu o celej realizácii.
+          Platba rezervuje konzultáciu alebo kvalifikovaný obhliadkový krok. Bezplatný odhad ceny bude mať samostatný
+          formulár vo Phase 4.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
           {Object.entries(PAYMENT_LABELS).map(([value, label]) => {
@@ -249,12 +253,12 @@ export function BookingForm() {
       </div>
 
       <Field label="Správa" name="message">
-        <textarea className="field-input min-h-32 resize-y" id="message" name="message" placeholder="Stručne opíšte priestor alebo rozsah práce." />
+        <textarea className="field-input min-h-32 resize-y" id="message" name="message" placeholder="Stručne opíšte nehnuteľnosť, otázku alebo dôvod konzultácie." />
       </Field>
 
       <label className="flex gap-3 rounded-md border border-black/10 bg-white/60 p-4 text-sm leading-6">
         <input className="mt-1 size-5 accent-[#e44f22]" type="checkbox" name="consent" required />
-        <span>Súhlasím so spracovaním údajov pre účel kontaktovania k obhliadke alebo konzultácii.</span>
+        <span>Súhlasím so spracovaním údajov pre účel kontaktovania k realitnej konzultácii alebo obhliadke.</span>
       </label>
       {errors.consent ? <p className="-mt-3 text-sm font-bold text-[#b42318]">{errors.consent}</p> : null}
 

@@ -1,21 +1,22 @@
 import Image from "next/image";
-import { Ruler, ShieldCheck, Sparkles, type LucideIcon } from "lucide-react";
+import Link from "next/link";
+import { BarChart3, CalendarCheck, Home, Users, type LucideIcon } from "lucide-react";
 
 const proofItems = [
   {
-    icon: ShieldCheck,
-    title: "Lokálny kontakt",
-    text: "Dubnica nad Váhom, Ilava, Trenčín a okolie obce. Rýchla obhliadka a jasná komunikácia."
+    icon: Home,
+    title: "Seller estimate",
+    text: "Najdôležitejší funnel zachytí majiteľov, ktorí zvažujú predaj a potrebujú odhad ceny."
   },
   {
-    icon: Ruler,
-    title: "Presný postup",
-    text: "Obklady, dlažby, sanita, podlahy aj sadrokartón nadväzujú v jednom zrozumiteľnom procese."
+    icon: Users,
+    title: "Databáza kupujúcich",
+    text: "Dopyt kupujúcich zvyšuje hodnotu pre budúcich predávajúcich aj nové ponuky."
   },
   {
-    icon: Sparkles,
-    title: "Hotový priestor",
-    text: "Cieľom nie je iba vykonaná práca, ale interiér, ktorý pôsobí pokojne, čisto a dôveryhodne."
+    icon: BarChart3,
+    title: "Konzultácia",
+    text: "Platená 1:1 konzultácia filtruje vážnych ľudí pred predajom, kúpou alebo investíciou."
   }
 ] satisfies Array<{
   icon: LucideIcon;
@@ -23,13 +24,13 @@ const proofItems = [
   text: string;
 }>;
 
-const processSteps = ["Obhliadka", "Cenová ponuka", "Realizácia", "Odovzdanie"];
+const processSteps = ["Odhad ceny", "Kupujúci", "Obhliadka", "Konzultácia"];
 
 export function ProofBeforeContactSection() {
   return (
     <section
-      id="dokaz-pred-kontaktom"
-      aria-labelledby="dokaz-pred-kontaktom-title"
+      id="kontakt-cta"
+      aria-labelledby="kontakt-cta-title"
       data-scene-stage="proof"
       data-scene-intensity="medium"
       className="relative z-10 isolate overflow-hidden bg-[#efe5d7] text-[#17120e]"
@@ -51,28 +52,29 @@ export function ProofBeforeContactSection() {
         }}
         aria-hidden="true"
       />
-      <div
-        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_13%_25%,rgba(255,255,255,0.74),transparent_24rem),radial-gradient(circle_at_77%_23%,rgba(255,255,255,0.48),transparent_19rem),linear-gradient(180deg,rgba(255,250,240,0.15),rgba(226,196,161,0.34))]"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-x-0 bottom-0 -z-10 h-44 bg-[linear-gradient(180deg,transparent,rgba(255,246,232,0.82)_50%,rgba(232,207,178,0.58))]"
-        aria-hidden="true"
-      />
 
       <div className="mx-auto flex min-h-[720px] w-[min(1540px,calc(100%_-_32px))] flex-col justify-between gap-10 py-14 sm:w-[min(1540px,calc(100%_-_48px))] md:min-h-[760px] md:py-18 xl:min-h-[820px] xl:py-20">
         <div className="grid gap-10 xl:grid-cols-[minmax(340px,0.78fr)_minmax(720px,1.22fr)] xl:items-center xl:pt-8">
           <div data-motion="reveal" className="max-w-[39rem]">
             <p className="text-xs font-black uppercase tracking-[0.34em] text-[#d45a1b] sm:text-sm">
-              DÔKAZ PRED KONTAKTOM
+              Kontakt a ďalší krok
             </p>
             <div className="mt-5 h-px w-12 bg-[#e44f22]" aria-hidden="true" />
             <h2
-              id="dokaz-pred-kontaktom-title"
-              className="mt-6 max-w-[11.5ch] font-serif text-[clamp(3rem,10vw,5.7rem)] font-semibold leading-[0.98] tracking-normal text-[#18140f] sm:text-[clamp(4.2rem,8vw,6.6rem)] xl:text-[6.4rem]"
+              id="kontakt-cta-title"
+              className="mt-6 max-w-[12ch] font-serif text-[clamp(3rem,10vw,5.7rem)] font-semibold leading-[0.98] tracking-normal text-[#18140f] sm:text-[clamp(4.2rem,8vw,6.6rem)] xl:text-[6.4rem]"
             >
-              Dobrý výsledok začína jasnou dohodou pred prvým zásahom do priestoru.
+              Pozornosť má skončiť v konkrétnej príležitosti.
             </h2>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="#odhad-ceny" className="btn-primary">
+                Zisti cenu nehnuteľnosti zdarma
+              </Link>
+              <Link href="/booking?service=realitna-konzultacia" className="btn-secondary">
+                <CalendarCheck size={18} aria-hidden="true" />
+                Rezervovať konzultáciu
+              </Link>
+            </div>
           </div>
 
           <div data-motion="stagger" className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 xl:gap-5">
@@ -83,16 +85,8 @@ export function ProofBeforeContactSection() {
                 <article
                   key={item.title}
                   data-motion-item
-                  className="group relative min-h-[252px] overflow-hidden rounded-[28px] border border-white/65 bg-[#fff8ec]/90 p-6 shadow-[0_26px_70px_rgba(72,52,31,0.16),inset_0_1px_0_rgba(255,255,255,0.78)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_34px_86px_rgba(72,52,31,0.2),inset_0_1px_0_rgba(255,255,255,0.86)] supports-[backdrop-filter]:bg-[#fff8ec]/58 supports-[backdrop-filter]:backdrop-blur-2xl sm:p-7 xl:min-h-[296px]"
+                  className="group relative min-h-[252px] overflow-hidden rounded-[28px] border border-white/65 bg-[#fff8ec]/90 p-6 shadow-[0_26px_70px_rgba(72,52,31,0.16),inset_0_1px_0_rgba(255,255,255,0.78)] transition duration-300 hover:-translate-y-1 supports-[backdrop-filter]:bg-[#fff8ec]/58 supports-[backdrop-filter]:backdrop-blur-2xl sm:p-7 xl:min-h-[296px]"
                 >
-                  <span
-                    className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-white/90 to-transparent"
-                    aria-hidden="true"
-                  />
-                  <span
-                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_0%,rgba(255,255,255,0.62),transparent_13rem),linear-gradient(145deg,rgba(255,255,255,0.2),transparent_42%)]"
-                    aria-hidden="true"
-                  />
                   <div className="relative">
                     <span className="grid size-12 place-items-center text-[#e45b1e]">
                       <Icon size={35} strokeWidth={1.8} aria-hidden="true" />
@@ -118,7 +112,7 @@ export function ProofBeforeContactSection() {
               className="relative flex items-center gap-4 rounded-[22px] px-3 py-3 sm:px-4 xl:rounded-none xl:px-7"
             >
               <span
-                className="grid size-14 shrink-0 place-items-center rounded-full border border-white/80 bg-[#fffaf1]/92 font-serif text-lg font-semibold text-[#d95a1f] shadow-[0_12px_30px_rgba(196,111,47,0.2),0_0_22px_rgba(255,255,255,0.72),inset_0_1px_0_rgba(255,255,255,0.9)]"
+                className="grid size-14 shrink-0 place-items-center rounded-full border border-white/80 bg-[#fffaf1]/92 font-serif text-lg font-semibold text-[#d95a1f]"
                 aria-hidden="true"
               >
                 {String(index + 1).padStart(2, "0")}
@@ -129,12 +123,6 @@ export function ProofBeforeContactSection() {
                 </span>
                 {step}
               </p>
-              {index < processSteps.length - 1 ? (
-                <span
-                  className="absolute right-0 top-1/2 hidden h-14 w-px -translate-y-1/2 bg-white/58 xl:block"
-                  aria-hidden="true"
-                />
-              ) : null}
             </li>
           ))}
         </ol>
