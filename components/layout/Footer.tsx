@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BarChart3, CalendarDays, Home, MessageCircle, Phone, Users } from "lucide-react";
 import { Logo } from "@/components/Logo";
@@ -17,18 +16,11 @@ const footerLinks = [
 export function Footer() {
   return (
     <footer className="relative isolate overflow-hidden bg-[#050608] pb-28 pt-10 text-white md:pb-14 md:pt-16">
-      <Image
-        src="/images/footer/footer-background.webp"
-        alt=""
-        fill
-        sizes="100vw"
-        aria-hidden="true"
-        className="absolute inset-0 z-0 h-full w-full object-cover object-center opacity-[0.36] saturate-[0.92]"
-      />
       <div
-        className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_8%_36%,rgba(0,92,190,0.36),transparent_34rem),radial-gradient(circle_at_92%_32%,rgba(232,35,42,0.3),transparent_32rem),linear-gradient(180deg,rgba(5,6,8,0.72),rgba(5,6,8,0.9)_42%,rgba(5,6,8,0.98))]"
+        className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_8%_36%,rgba(106,167,255,0.24),transparent_34rem),radial-gradient(circle_at_92%_32%,rgba(27,224,155,0.16),transparent_32rem),linear-gradient(180deg,rgba(5,6,8,0.86),rgba(5,6,8,0.94)_42%,rgba(5,6,8,0.99))]"
         aria-hidden="true"
       />
+      <div className="absolute inset-0 z-[1] opacity-30 phase3-hero-grid" aria-hidden="true" />
       <div className="absolute inset-x-0 top-0 z-[2] h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" aria-hidden="true" />
       <div className="absolute inset-x-0 bottom-0 z-[2] h-48 bg-gradient-to-t from-black via-black/72 to-transparent" aria-hidden="true" />
 
@@ -38,8 +30,8 @@ export function Footer() {
           className="relative overflow-hidden rounded-[1.4rem] border border-white/16 bg-white/[0.075] px-5 py-6 shadow-[0_34px_120px_rgba(0,0,0,0.58),inset_0_1px_0_rgba(255,255,255,0.16)] backdrop-blur-2xl sm:px-7 sm:py-8 lg:grid lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center lg:gap-10 lg:px-10 lg:py-10"
         >
           <div className="relative max-w-3xl">
-            <div className="inline-flex items-center gap-3 text-[0.68rem] font-black uppercase tracking-[0.24em] text-[#ff5b62]">
-              <span className="h-px w-9 bg-[#ff5b62]/70" aria-hidden="true" />
+            <div className="inline-flex items-center gap-3 text-[0.68rem] font-black uppercase tracking-[0.24em] text-[#d8b76a]">
+              <span className="h-px w-9 bg-[#d8b76a]/70" aria-hidden="true" />
               Ďalší krok
             </div>
             <h2
@@ -57,7 +49,7 @@ export function Footer() {
           <div className="relative mt-8 grid gap-3 lg:mt-0">
             <Link
               href="/#odhad-ceny"
-              className={`group inline-flex min-h-14 items-center justify-between gap-4 rounded-lg border border-[#ff777b]/42 bg-[#e8232a]/24 px-5 py-4 text-sm font-black uppercase tracking-[0.12em] text-white shadow-[0_18px_44px_rgba(232,35,42,0.18),inset_0_1px_0_rgba(255,255,255,0.18)] transition duration-200 hover:-translate-y-0.5 hover:border-[#ff8b8f]/70 hover:bg-[#e8232a]/34 ${focusClass}`}
+              className={`group inline-flex min-h-14 items-center justify-between gap-4 rounded-lg border border-[#d8b76a]/42 bg-[#d8b76a]/18 px-5 py-4 text-sm font-black uppercase tracking-[0.12em] text-white shadow-[0_18px_44px_rgba(216,183,106,0.14),inset_0_1px_0_rgba(255,255,255,0.18)] transition duration-200 hover:-translate-y-0.5 hover:border-[#d8b76a]/70 hover:bg-[#d8b76a]/26 ${focusClass}`}
             >
               <span className="inline-flex items-center gap-3">
                 <BarChart3 size={18} aria-hidden="true" />

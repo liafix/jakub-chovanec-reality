@@ -21,14 +21,14 @@ export function Header() {
     <header
       className={`site-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl transition-all duration-300 ${
         scrolled
-          ? "min-h-16 border-black/14 bg-[#f6f0e7]/94 shadow-[0_12px_40px_rgba(20,20,20,0.06)]"
-          : "min-h-20 border-black/10 bg-[#f6f0e7]/72"
+          ? "min-h-16 border-white/10 bg-[#05070a]/92 shadow-[0_12px_40px_rgba(0,0,0,0.2)]"
+          : "min-h-20 border-white/10 bg-[#05070a]/62"
       }`}
     >
       <div className="container flex min-h-[inherit] items-center justify-between gap-4">
         <Logo variant="header" />
 
-        <nav className="hidden items-center gap-14 text-base font-semibold text-black/74 md:flex">
+        <nav className="hidden items-center gap-14 text-base font-semibold text-white/74 md:flex">
           <Link href="/#odhad-ceny">Odhad ceny</Link>
           <Link href="/sluzby/databaza-kupujucich">Kupujúci</Link>
           <Link href="/booking?service=realitna-konzultacia">Konzultácia</Link>
@@ -36,7 +36,7 @@ export function Header() {
         </nav>
 
         <MagneticButton as="a" href={company.phoneHref} className="inline-flex">
-          <span className="btn-secondary min-h-14 rounded-md border-black/24 bg-transparent px-7 py-3 text-base">
+          <span className="btn-secondary min-h-14 rounded-md border-white/18 bg-white/[0.055] px-7 py-3 text-base text-white hover:border-white/34 hover:bg-white/[0.1]">
             <Phone size={18} aria-hidden="true" />
             <span>{company.phoneDisplay}</span>
           </span>

@@ -15,7 +15,7 @@ const logoSizes: Record<LogoVariant, string> = {
 
 const logoMark = (variant: LogoVariant, className = "") => (
   <span
-    className={`grid shrink-0 place-items-center rounded-full border border-black/10 bg-[#11100e] font-serif font-semibold text-[#fffaf0] shadow-[0_16px_42px_rgba(17,16,14,0.16)] ${logoSizes[variant]} ${className}`}
+    className={`grid shrink-0 place-items-center rounded-full border border-white/18 bg-[#f7f1e8] font-serif font-semibold text-[#0b1118] shadow-[0_16px_42px_rgba(0,0,0,0.22)] ${logoSizes[variant]} ${className}`}
     aria-hidden="true"
   >
     JC

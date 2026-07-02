@@ -318,6 +318,72 @@ select {
   text-wrap: balance;
 }
 
+.phase3-hero .hero-display-title {
+  max-width: 13ch;
+  font-size: clamp(3.05rem, 8.4vw, 6.7rem);
+  line-height: 0.93;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.phase3-hero .hero-display-title [data-text-mask-line] + [data-text-mask-line] {
+  margin-top: 0.16em;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.58em;
+  line-height: 1.08;
+}
+
+.phase3-hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 58%, transparent 100%);
+}
+
+.phase3-map-grid {
+  background-image:
+    linear-gradient(rgba(106, 167, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(106, 167, 255, 0.12) 1px, transparent 1px),
+    radial-gradient(circle at 28% 36%, rgba(27, 224, 155, 0.18), transparent 9rem),
+    radial-gradient(circle at 68% 54%, rgba(106, 167, 255, 0.16), transparent 10rem);
+  background-size: 34px 34px, 34px 34px, auto, auto;
+}
+
+.phase3-panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 24px 70px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(18px);
+}
+
+.phase3-section-dark {
+  background:
+    radial-gradient(circle at 16% 12%, rgba(106, 167, 255, 0.12), transparent 24rem),
+    radial-gradient(circle at 86% 18%, rgba(27, 224, 155, 0.09), transparent 22rem),
+    linear-gradient(135deg, #05070a 0%, #0b1118 48%, #05070a 100%);
+}
+
+.phase3-section-soft {
+  background:
+    radial-gradient(circle at 14% 8%, rgba(106, 167, 255, 0.1), transparent 22rem),
+    linear-gradient(135deg, #eef2f4 0%, #f7f4ec 52%, #e8edf0 100%);
+}
+
+.phase3-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.055);
+  padding: 0.48rem 0.68rem;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
 .hero-primary-cta,
 .hero-secondary-cta {
   min-width: 12.25rem;

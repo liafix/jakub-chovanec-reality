@@ -1,28 +1,30 @@
-import Image from "next/image";
-import { AlertTriangle, Camera, Handshake, LineChart, Users } from "lucide-react";
+import Link from "next/link";
+import { AlertTriangle, ArrowUpRight, Camera, Handshake, LineChart, ShieldAlert, Users } from "lucide-react";
 
 const sellerProblems = [
   {
     icon: Camera,
-    title: "Slabá prezentácia",
-    text: "Fotky, text a prvý dojem často znižujú dôveru ešte pred obhliadkou."
+    title: "Slaba prezentacia",
+    text: "Prvy dojem rozhoduje skor, nez zaujemca zavola. Slabe fotky, text a staging znizuju doveru aj cenu."
   },
   {
     icon: LineChart,
-    title: "Zlá cenová stratégia",
-    text: "Príliš vysoká cena spáli dopyt, príliš nízka cena oberá majiteľa o peniaze."
+    title: "Zla cena",
+    text: "Prilis vysoka cena spali dopyt. Prilis nizka pripravi majitela o hodnotu, ktoru uz tazko ziska spat."
   },
   {
     icon: Users,
-    title: "Nekvalifikované obhliadky",
-    text: "Bez filtra chodia ľudia, ktorí nemajú rozpočet, financovanie alebo reálny záujem."
+    title: "Slabe obhliadky",
+    text: "Bez kvalifikacie chodia ludia bez rozpoctu, financovania alebo realnej motivacie kupit."
   },
   {
     icon: Handshake,
-    title: "Slabé vyjednávanie",
-    text: "Majiteľ môže ustúpiť pod hodnotu, keď nemá dáta, argumenty a proces."
+    title: "Tlak pri vyjednavani",
+    text: "Majitel ustupuje rychlejsie, ked nema data, argumenty a jasny postup predaja."
   }
 ];
+
+const lossSignals = ["nespravna cena", "slaby inzerat", "chaos v obhliadkach", "predaj pod hodnotou"];
 
 export function InteriorProcessSection() {
   return (
@@ -30,65 +32,57 @@ export function InteriorProcessSection() {
       id="seller-problem"
       data-scene-stage="value"
       data-scene-intensity="rest"
-      className="relative isolate z-10 overflow-hidden bg-[#f8f1e6] py-20 md:py-28 lg:py-32"
+      className="phase3-section-dark relative isolate z-10 overflow-hidden py-20 text-white md:py-28 lg:py-32"
     >
-      <Image
-        src="/images/interior-process/interior-process-background.webp"
-        alt=""
-        fill
-        aria-hidden="true"
-        sizes="100vw"
-        className="pointer-events-none absolute inset-0 -z-30 h-full w-full object-cover object-center"
-      />
-      <div className="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(251,248,240,0.96)_0%,rgba(251,248,240,0.82)_42%,rgba(251,248,240,0.46)_100%)]" />
-      <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_72%_46%,rgba(255,255,255,0.52),transparent_35%),radial-gradient(circle_at_16%_18%,rgba(228,79,34,0.11),transparent_32%),radial-gradient(circle_at_88%_82%,rgba(184,93,61,0.10),transparent_30%)]" />
-
-      <div className="container relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <div className="absolute inset-0 -z-10 opacity-40 phase3-hero-grid" aria-hidden="true" />
+      <div className="container relative grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
         <div data-motion="reveal" className="max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#b85d3d]">
-            Problém predávajúceho
-          </p>
-          <div className="mt-4 h-px w-16 bg-[#b85d3d]/70" />
-          <h2 className="mt-6 max-w-3xl font-serif text-5xl font-semibold leading-[0.98] tracking-[-0.045em] text-[#11100e] sm:text-6xl lg:text-[5rem]">
-            Majitelia často prichádzajú o peniaze ešte pred prvou obhliadkou.
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#d8b76a]">Problem predavajuceho</p>
+          <h2 className="mt-6 max-w-3xl font-serif text-5xl font-semibold leading-[0.98] tracking-normal text-white sm:text-6xl lg:text-[5.2rem]">
+            Peniaze sa stracaju skor, nez pride prva obhliadka.
           </h2>
-          <div className="mt-8 max-w-2xl rounded-[1.6rem] border border-white/55 bg-[#fbf8f0]/58 p-5 shadow-[0_24px_80px_rgba(42,35,24,0.08)] backdrop-blur-md sm:p-6">
-            <p className="text-base leading-8 text-black/70 sm:text-lg">
-              Predaj nehnuteľnosti nie je iba inzerát. Slabé fotky, nesprávna cena, nevýrazná prezentácia, slabá
-              distribúcia a nejasné vyjednávanie môžu spôsobiť, že majiteľ predá pomalšie alebo pod trhovou hodnotou.
-            </p>
+          <p className="mt-7 max-w-2xl text-base leading-8 text-white/64 sm:text-lg">
+            Predaj nehnutelnosti nie je iba portalovy inzerat. Cena, dovera, video, distribucia a kvalifikacia zaujemcov
+            rozhoduju o tom, ci majitel predava strategicky alebo iba reaguje na chaos.
+          </p>
+
+          <div className="mt-8 grid max-w-xl gap-2">
+            {lossSignals.map((signal) => (
+              <div key={signal} className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.045] px-4 py-3">
+                <ShieldAlert size={18} className="text-[#ff7a7a]" aria-hidden="true" />
+                <span className="text-sm font-bold text-white/72">{signal}</span>
+              </div>
+            ))}
           </div>
+
+          <Link href="#odhad-ceny" className="btn-primary hero-primary-cta hero-primary-cta--light mt-9">
+            Zisti cenu nehnutelnosti zdarma
+            <ArrowUpRight size={18} aria-hidden="true" />
+          </Link>
         </div>
 
         <div data-motion="stagger" className="grid gap-4 sm:grid-cols-2">
           {sellerProblems.map((item, index) => {
             const Icon = item.icon;
             return (
-              <article
-                key={item.title}
-                data-motion-item
-                className="rounded-[1.35rem] border border-white/65 bg-white/74 p-6 shadow-[0_22px_70px_rgba(42,35,24,0.12),inset_0_1px_0_rgba(255,255,255,0.72)] backdrop-blur-xl"
-              >
+              <article key={item.title} data-motion-item className="phase3-panel min-h-[230px] p-6">
                 <div className="flex items-start justify-between gap-4">
-                  <span className="grid size-12 place-items-center rounded-full border border-[#ead9c7] bg-[#fff6e8] text-[#e44f22]">
+                  <span className="grid size-12 place-items-center rounded-md border border-white/10 bg-white/[0.06] text-[#6aa7ff]">
                     <Icon size={22} aria-hidden="true" />
                   </span>
-                  <span className="font-serif text-lg font-semibold text-black/28">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="font-serif text-lg font-semibold text-white/26">{String(index + 1).padStart(2, "0")}</span>
                 </div>
-                <h3 className="mt-7 text-2xl font-black leading-tight text-[#17120e]">{item.title}</h3>
-                <p className="mt-5 text-base leading-8 text-[#3f372f]">{item.text}</p>
+                <h3 className="mt-7 text-2xl font-black leading-tight text-white">{item.title}</h3>
+                <p className="mt-5 text-base leading-8 text-white/60">{item.text}</p>
               </article>
             );
           })}
 
-          <article
-            data-motion-item
-            className="rounded-[1.35rem] border border-[#e44f22]/20 bg-[#11100e] p-6 text-[#fffaf0] shadow-[0_28px_90px_rgba(17,16,14,0.22)] sm:col-span-2"
-          >
-            <AlertTriangle className="text-[#e44f22]" size={28} aria-hidden="true" />
-            <p className="mt-5 text-2xl font-black">Preto je hlavným CTA bezplatný odhad ceny, nie kurz.</p>
+          <article data-motion-item className="rounded-lg border border-[#d8b76a]/24 bg-[#d8b76a]/10 p-6 text-white sm:col-span-2">
+            <AlertTriangle className="text-[#d8b76a]" size={28} aria-hidden="true" />
+            <p className="mt-5 text-2xl font-black">Preto je hlavny funnel odhad ceny, nie mentoring.</p>
             <p className="mt-4 max-w-2xl text-base leading-8 text-white/68">
-              Jeden kvalitný seller lead môže mať násobne vyššiu hodnotu než malý digitálny produkt.
+              Jeden seriozny seller lead moze mat vacsi obchodny potencial nez desiatky malych sekundarnych produktov.
             </p>
           </article>
         </div>
