@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AlertCircle, Loader2 } from "lucide-react";
 import { PAYMENT_AMOUNTS_CENTS, PAYMENT_LABELS } from "@/lib/commerce/config";
 import { services } from "@/lib/content/services";
@@ -23,15 +23,15 @@ type CheckoutResponse =
     };
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const phoneRegex = /^[0-9+\s]{9,16}$/;
+const phoneRegex = /^[0-9+\s().-]{7,24}$/;
 const attributionFields = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
 const bookingServices = services.filter((service) =>
   ["rezervacia-obhliadky", "realitna-konzultacia"].includes(service.slug)
 );
 
 const paymentDescriptions: Record<PaymentType, string> = {
-  reservation_fee: "Platený rezervačný krok pre kvalifikovanú obhliadku alebo seriózne posúdenie konkrétnej ponuky.",
-  consultation_fee: "Platená realitná konzultácia pre predaj, kúpu, investíciu, cenu alebo vyjednávanie."
+  reservation_fee: "Rezervačný krok pre kvalifikovanú žiadosť o obhliadku konkrétnej ponuky.",
+  consultation_fee: "Realitná konzultácia pred predajom, kúpou, investíciou, cenou alebo vyjednávaním."
 };
 
 function getServicePaymentType(serviceSlug: string): PaymentType {
@@ -67,20 +67,39 @@ function readAttributionPayload() {
 export function BookingForm() {
   const [errors, setErrors] = useState<ErrorMap>({});
   const [selectedService, setSelectedService] = useState("");
-  const [paymentType, setPaymentType] = useState<PaymentType>("reservation_fee");
+  const [paymentType, setPaymentType] = useState<PaymentType>("consultation_fee");
+  const [initialLocation, setInitialLocation] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const service = searchParams.get("service");
+    const location = searchParams.get("location");
+
+    if (service && bookingServices.some((item) => item.slug === service)) {
+      setSelectedService(service);
+      setPaymentType(getServicePaymentType(service));
+    } else {
+      setSelectedService("realitna-konzultacia");
+      setPaymentType("consultation_fee");
+    }
+
+    if (location) {
+      setInitialLocation(location);
+    }
+  }, []);
 
   function validate(form: HTMLFormElement) {
     const data = new FormData(form);
     const nextErrors: ErrorMap = {};
-    const email = String(data.get("email") || "");
-    const phone = String(data.get("phone") || "");
+    const email = String(data.get("email") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
     const selectedPaymentType = String(data.get("paymentType") || "");
 
     if (!String(data.get("name") || "").trim()) nextErrors.name = "Zadajte meno.";
-    if (!phoneRegex.test(phone.trim())) nextErrors.phone = "Zadajte platné telefónne číslo.";
-    if (email && !emailRegex.test(email.trim())) nextErrors.email = "Zadajte platný email.";
+    if (!phoneRegex.test(phone)) nextErrors.phone = "Zadajte platné telefónne číslo.";
+    if (email && !emailRegex.test(email)) nextErrors.email = "Zadajte platný e-mail.";
     if (!String(data.get("service") || "")) nextErrors.service = "Vyberte realitný zámer.";
     if (!isPaymentType(selectedPaymentType)) nextErrors.paymentType = "Vyberte typ platby.";
     if (!String(data.get("location") || "").trim()) nextErrors.location = "Zadajte lokalitu.";
@@ -98,9 +117,7 @@ export function BookingForm() {
     setErrors(nextErrors);
     setSubmitError("");
 
-    if (Object.keys(nextErrors).length > 0 || !form.checkValidity()) {
-      return;
-    }
+    if (Object.keys(nextErrors).length > 0) return;
 
     const data = new FormData(form);
     const selectedPaymentType = String(data.get("paymentType") || "");
@@ -141,7 +158,7 @@ export function BookingForm() {
       }
 
       if (!result.checkoutUrl) {
-        throw new Error("Nepodarilo sa otvoriť bezpečnú platbu. Skúste to, prosím, znova alebo nás kontaktujte telefonicky.");
+        throw new Error("Nepodarilo sa otvoriť bezpečnú platbu. Skúste to, prosím, znova alebo kontaktujte Jakuba priamo.");
       }
 
       window.location.assign(result.checkoutUrl);
@@ -167,20 +184,20 @@ export function BookingForm() {
     <form onSubmit={handleSubmit} noValidate className="grid gap-5 rounded-md border border-black/10 bg-white/70 p-5 shadow-[0_24px_70px_rgba(20,20,20,0.06)] sm:p-8">
       <div className="grid gap-5 md:grid-cols-2">
         <Field label="Meno" name="name" error={errors.name}>
-          <input className="field-input" id="name" name="name" required autoComplete="name" />
+          <input className="field-input" id="name" name="name" autoComplete="name" />
         </Field>
         <Field label="Telefón" name="phone" error={errors.phone}>
-          <input className="field-input" id="phone" name="phone" required inputMode="tel" pattern="[0-9+\\s]{9,16}" autoComplete="tel" />
+          <input className="field-input" id="phone" name="phone" inputMode="tel" autoComplete="tel" />
         </Field>
       </div>
 
-      <Field label="Email" name="email" error={errors.email}>
+      <Field label="E-mail" name="email" error={errors.email}>
         <input className="field-input" id="email" name="email" type="email" autoComplete="email" />
       </Field>
 
       <div className="grid gap-5 md:grid-cols-2">
         <Field label="Realitný zámer" name="service" error={errors.service}>
-          <select className="field-input" id="service" name="service" required value={selectedService} onChange={handleServiceChange}>
+          <select className="field-input" id="service" name="service" value={selectedService} onChange={handleServiceChange}>
             <option value="" disabled>
               Vyberte zámer
             </option>
@@ -192,15 +209,22 @@ export function BookingForm() {
           </select>
         </Field>
         <Field label="Lokalita" name="location" error={errors.location}>
-          <input className="field-input" id="location" name="location" required placeholder="Lokalita nehnuteľnosti" />
+          <input
+            key={initialLocation}
+            className="field-input"
+            id="location"
+            name="location"
+            defaultValue={initialLocation}
+            placeholder="Lokalita alebo téma konzultácie"
+          />
         </Field>
       </div>
 
       <fieldset className="grid gap-3">
-        <legend className="text-sm font-black">Vyberte ďalší krok</legend>
+        <legend className="text-sm font-black">Vyberte platený krok</legend>
         <p className="text-sm leading-6 text-black/58">
-          Platba rezervuje konzultáciu alebo kvalifikovaný obhliadkový krok. Bezplatný odhad ceny bude mať samostatný
-          formulár vo Phase 4.
+          Konzultácia je sekundárny produkt pre konkrétne otázky pred predajom, kúpou alebo investíciou. Hlavný bezplatný
+          funnel ostáva odhad ceny nehnuteľnosti.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
           {Object.entries(PAYMENT_LABELS).map(([value, label]) => {
@@ -222,7 +246,6 @@ export function BookingForm() {
                     value={typedValue}
                     checked={checked}
                     onChange={handlePaymentTypeChange}
-                    required
                   />
                   <span>
                     <span className="block font-black">{label}</span>
@@ -239,10 +262,10 @@ export function BookingForm() {
 
       <div className="grid gap-5 md:grid-cols-2">
         <Field label="Preferovaný dátum" name="date" error={errors.date}>
-          <input className="field-input" id="date" name="date" type="date" required />
+          <input className="field-input" id="date" name="date" type="date" />
         </Field>
         <Field label="Preferovaný čas" name="time" error={errors.time}>
-          <select className="field-input" id="time" name="time" required defaultValue="">
+          <select className="field-input" id="time" name="time" defaultValue="">
             <option value="" disabled>
               Vyberte čas
             </option>
@@ -253,12 +276,12 @@ export function BookingForm() {
       </div>
 
       <Field label="Správa" name="message">
-        <textarea className="field-input min-h-32 resize-y" id="message" name="message" placeholder="Stručne opíšte nehnuteľnosť, otázku alebo dôvod konzultácie." />
+        <textarea className="field-input min-h-32 resize-y" id="message" name="message" placeholder="Stručne opíšte otázku, ponuku alebo dôvod konzultácie." />
       </Field>
 
       <label className="flex gap-3 rounded-md border border-black/10 bg-white/60 p-4 text-sm leading-6">
-        <input className="mt-1 size-5 accent-[#e44f22]" type="checkbox" name="consent" required />
-        <span>Súhlasím so spracovaním údajov pre účel kontaktovania k realitnej konzultácii alebo obhliadke.</span>
+        <input className="mt-1 size-5 accent-[#e44f22]" type="checkbox" name="consent" />
+        <span>Súhlasím so spracovaním údajov za účelom spätného kontaktovania.</span>
       </label>
       {errors.consent ? <p className="-mt-3 text-sm font-bold text-[#b42318]">{errors.consent}</p> : null}
 

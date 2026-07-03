@@ -109,8 +109,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <CheckCircle2 className="text-[#257a57]" size={28} aria-hidden="true" />
             <p className="mt-5 text-2xl font-black">Začnite obchodne najbližším krokom.</p>
             <p className="mt-3 text-sm leading-6 text-black/62">
-              Vo Phase 2 ide hlavne o obsahový funnel. Funkčné formuláre pre odhad ceny a databázu kupujúcich prídu vo
-              Phase 4; platená konzultácia zatiaľ používa existujúci booking flow.
+              Hlavný ďalší krok je bezplatný odhad ceny. Databáza kupujúcich a platená konzultácia zostávajú podporné
+              funnely podľa toho, či chcete predávať, kupovať alebo riešiť konkrétnu otázku.
             </p>
             <Link
               href={service.slug === "realitna-konzultacia" ? "/booking?service=realitna-konzultacia" : "/#odhad-ceny"}

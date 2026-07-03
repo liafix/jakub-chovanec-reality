@@ -103,7 +103,7 @@ export async function POST(request: NextRequest) {
             unit_amount: amountCents,
             product_data: {
               name: PAYMENT_LABELS[input.paymentType],
-              description: "Martiš MV - platba za rezerváciu alebo konzultáciu"
+              description: "Platený realitný krok pre konzultáciu alebo kvalifikovanú žiadosť o obhliadku."
             }
           }
         }

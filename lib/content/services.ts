@@ -102,7 +102,7 @@ const consultationSteps: ServiceProcessStep[] = [
 export const services: Service[] = [
   {
     slug: "odhad-ceny-nehnutelnosti",
-    cardImage: "/images/sluzby/rekonstrukcie-na-kluc.webp",
+    cardImage: "/images/listings/property-210000.webp",
     cardPreview:
       "Bezplatný odhad ceny pre majiteľov, ktorí zvažujú predaj bytu, domu alebo pozemku.",
     cardImageAlt: "Neutrálny placeholder pre realitný odhad",
@@ -237,7 +237,7 @@ export const services: Service[] = [
     faq: [
       {
         question: "Je zápis do databázy platený?",
-        answer: "Nie. V tejto fáze ide o dopytový funnel a prípravu na Phase 4 formulár."
+        answer: "Nie. Ide o dopytový funnel, ktorý pomáha spárovať kupujúcich s vhodnou ponukou."
       },
       {
         question: "Čo mám doplniť ako kupujúci?",
@@ -349,7 +349,7 @@ export const services: Service[] = [
   },
   {
     slug: "realitna-konzultacia",
-    cardImage: "/hero/background-interior.webp",
+    cardImage: "/images/detail/background2.webp",
     cardPreview:
       "Platená 1:1 konzultácia pred predajom, kúpou alebo investičným rozhodnutím.",
     cardImageAlt: "Neutrálny placeholder pre realitnú konzultáciu",
@@ -365,7 +365,7 @@ export const services: Service[] = [
     benefits: [
       "rýchle odporúčanie bez plného predajného procesu",
       "filter pre vážnych klientov",
-      "sekundárny príjem cez Stripe v neskoršej fáze",
+      "sekundárny príjem cez Stripe ako podporný produkt",
       "vhodné pred predajom, kúpou alebo investíciou"
     ],
     processSteps: consultationSteps,
@@ -375,8 +375,8 @@ export const services: Service[] = [
         answer: "Nie. Hlavný produkt je seller estimate funnel, konzultácia je sekundárna."
       },
       {
-        question: "Bude platba riesena cez Stripe?",
-        answer: "Áno, ale úprava Stripe produktu patrí až do Phase 4."
+        question: "Bude platba riešená cez Stripe?",
+        answer: "Áno. Konzultácia používa bezpečný Stripe Checkout v testovacom alebo produkčnom režime podľa nastavenia."
       }
     ],
     primaryCta: "Rezervovať konzultáciu",

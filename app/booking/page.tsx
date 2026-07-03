@@ -3,9 +3,9 @@ import { BookingForm } from "@/components/ui/BookingForm";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Rezervovať konzultáciu | Jakub Chovanec Reality",
+  title: "Realitná konzultácia 1:1 | Jakub Chovanec Reality",
   description:
-    "Rezervujte si platenú realitnú konzultáciu alebo kvalifikovanú žiadosť o obhliadku nehnuteľnosti.",
+    "Rezervujte si platenú 60-minútovú realitnú konzultáciu pred predajom, kúpou alebo investičným rozhodnutím.",
   path: "/booking"
 });
 
@@ -14,12 +14,11 @@ export default function BookingPage() {
     <main className="pt-28">
       <section className="container grid gap-10 py-16 pb-32 lg:grid-cols-[0.75fr_1fr] lg:items-start">
         <div>
-          <p className="text-sm font-black uppercase text-[#e44f22]">Konzultácia / obhliadka</p>
-          <h1 className="mt-4 text-5xl font-black leading-tight">Rezervovať realitnú konzultáciu alebo obhliadku.</h1>
+          <p className="text-sm font-black uppercase text-[#e44f22]">Sekundárny platený produkt</p>
+          <h1 className="mt-4 text-5xl font-black leading-tight">Realitná konzultácia 1:1 - 60 min.</h1>
           <p className="mt-6 text-lg leading-8 text-black/66">
-            Vyplňte základné údaje, realitný zámer, lokalitu a preferovaný termín. Tento formulár v Phase 2 stále používa
-            existujúci checkout flow pre platený krok. Bezplatný odhad ceny a databáza kupujúcich dostanú vlastné
-            formuláre až vo Phase 4.
+            Konzultácia je vhodná, keď potrebujete konkrétne odporúčanie pred predajom, kúpou, investíciou alebo
+            vyjednávaním. Bezplatný odhad ceny nehnuteľnosti zostáva hlavný funnel pre majiteľov.
           </p>
         </div>
         <BookingForm />

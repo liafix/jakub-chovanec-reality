@@ -2,12 +2,12 @@ import type { PaymentType } from "@/lib/contracts";
 
 export const PAYMENT_AMOUNTS_CENTS = {
   reservation_fee: 3000,
-  consultation_fee: 8000
+  consultation_fee: 7900
 } satisfies Record<PaymentType, number>;
 
 export const PAYMENT_LABELS = {
   reservation_fee: "Rezervačný poplatok za obhliadku",
-  consultation_fee: "Platená konzultácia"
+  consultation_fee: "Realitná konzultácia 1:1 - 60 min"
 } satisfies Record<PaymentType, string>;
 
 export const COMMISSION_PERCENT = "35.00";

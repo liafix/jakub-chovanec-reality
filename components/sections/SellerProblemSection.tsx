@@ -26,7 +26,7 @@ const sellerProblems = [
 
 const lossSignals = ["nesprávna cena", "slabý inzerát", "chaos v obhliadkach", "predaj pod hodnotou"];
 
-export function InteriorProcessSection() {
+export function SellerProblemSection() {
   return (
     <section
       id="seller-problem"

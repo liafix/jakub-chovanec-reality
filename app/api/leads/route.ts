@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { getDb } from "@/db";
 import { bookings, leads } from "@/db/schema";
-import { parseLeadInput } from "@/lib/commerce/requests";
+import { InputValidationError, parseLeadInput } from "@/lib/commerce/requests";
 import { sendOwnerLeadNotification } from "@/lib/email/server";
 
 export const runtime = "nodejs";
@@ -17,9 +17,31 @@ function getInsertId(result: unknown) {
   return insertId;
 }
 
+function demoFallbackEnabled() {
+  return process.env.NODE_ENV !== "production" && process.env.ENABLE_DEMO_LEAD_FALLBACK === "true";
+}
+
+function storageErrorMessage(error: unknown) {
+  const message = error instanceof Error ? error.message : "";
+  if (message.includes("DATABASE_URL")) {
+    return "Ukladanie leadov nie je nakonfigurované.";
+  }
+
+  return "Lead sa nepodarilo uložiť. Skúste to znova alebo kontaktujte Jakuba priamo.";
+}
+
 export async function POST(request: NextRequest) {
+  let input;
+
   try {
-    const input = await parseLeadInput(request);
+    input = await parseLeadInput(request);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Formulár sa nepodarilo spracovať.";
+    const status = error instanceof InputValidationError ? 400 : 400;
+    return NextResponse.json({ ok: false, error: message }, { status });
+  }
+
+  try {
     const db = getDb();
     const now = new Date();
 
@@ -72,8 +94,15 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ ok: true, leadId, bookingId });
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Lead creation failed.";
-    const status = message.includes("DATABASE_URL") ? 503 : 400;
-    return NextResponse.json({ ok: false, error: message }, { status });
+    if (demoFallbackEnabled()) {
+      return NextResponse.json({
+        ok: true,
+        demo: true,
+        message: "Demo režim: formulár prešiel validáciou, ale lead nebol uložený do produkčného úložiska."
+      });
+    }
+
+    const message = storageErrorMessage(error);
+    return NextResponse.json({ ok: false, error: message }, { status: 503 });
   }
 }

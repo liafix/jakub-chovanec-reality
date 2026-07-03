@@ -119,6 +119,11 @@ export function FeaturedListingsSection() {
                     </div>
                   ))}
                 </dl>
+
+                <a href="/kontakt" className="btn-secondary hero-secondary-cta--light mt-5 w-full border-white/14 bg-white/[0.075] text-white">
+                  Mám záujem o obhliadku
+                  <ArrowUpRight size={18} aria-hidden="true" />
+                </a>
               </div>
             </article>
           ))}

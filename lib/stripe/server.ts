@@ -25,7 +25,7 @@ export function getStripe() {
 
   stripeClient = new Stripe(secretKey, {
     appInfo: {
-      name: "Martis MV website",
+      name: "Jakub Chovanec Reality",
       version: "0.1.0"
     }
   });

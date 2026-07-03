@@ -242,7 +242,7 @@ function WebGLContextGuard({ onFailure }: { onFailure: () => void }) {
     const canvas = gl.domElement;
     const handleContextLost = (event: Event) => {
       event.preventDefault();
-      window.dispatchEvent(new CustomEvent("martis:webgl-error"));
+      window.dispatchEvent(new CustomEvent("jakub-reality:webgl-error"));
       onFailure();
     };
 

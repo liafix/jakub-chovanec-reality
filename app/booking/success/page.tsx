@@ -5,8 +5,8 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
-    title: "Platba prijatá | Jakub Chovanec Reality",
-    description: "Ďakujeme. Platba bola prijatá a ozveme sa k potvrdeniu praktických detailov.",
+    title: "Rezervácia prijatá | Jakub Chovanec Reality",
+    description: "Rezervácia realitnej konzultácie bola prijatá. Skontrolujte e-mail a pripravte si otázky.",
     path: "/booking/success"
   }),
   robots: {
@@ -21,10 +21,10 @@ export default function BookingSuccessPage() {
       <section className="container grid min-h-[60vh] place-items-center py-16 text-center">
         <div className="max-w-xl rounded-md border border-[#257a57]/20 bg-white/72 p-8">
           <CheckCircle2 className="mx-auto text-[#257a57]" size={44} aria-hidden="true" />
-          <h1 className="mt-5 text-4xl font-black">Platba bola prijatá.</h1>
+          <h1 className="mt-5 text-4xl font-black">Rezervácia konzultácie bola prijatá.</h1>
           <p className="mt-4 leading-7 text-black/64">
-            Ďakujeme. Prijali sme vašu požiadavku na obhliadku alebo konzultáciu. Ozveme sa, aby sme potvrdili praktické
-            detaily termínu a ďalší postup.
+            Skontrolujte e-mail a pripravte si otázky k predaju, kúpe alebo investícii. Jakub sa ozve s potvrdením
+            praktických detailov.
           </p>
           <Link href="/" className="btn-primary mt-6">
             Späť na úvod

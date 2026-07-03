@@ -110,7 +110,7 @@ function HeroVisual() {
                 ))}
               </div>
               <div className="mt-4 rounded-md bg-[#F6C453]/12 p-3 text-sm font-bold text-[#FFF8EA]">
-                Seller lead pripravený na Phase 4 formulár
+                Seller lead pripravený na bezplatný odhad
               </div>
             </article>
 
