@@ -26,8 +26,9 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneRegex = /^[0-9+\s().-]{7,24}$/;
 const attributionFields = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
 const bookingServices = services.filter((service) =>
-  ["rezervacia-obhliadky", "realitna-konzultacia"].includes(service.slug)
+  ["realitna-konzultacia"].includes(service.slug)
 );
+const demoPaymentTypes: PaymentType[] = ["consultation_fee"];
 
 const paymentDescriptions: Record<PaymentType, string> = {
   reservation_fee: "Rezervačný krok pre kvalifikovanú žiadosť o obhliadku konkrétnej ponuky.",
@@ -227,8 +228,8 @@ export function BookingForm() {
           funnel ostáva odhad ceny nehnuteľnosti.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
-          {Object.entries(PAYMENT_LABELS).map(([value, label]) => {
-            const typedValue = value as PaymentType;
+          {demoPaymentTypes.map((typedValue) => {
+            const label = PAYMENT_LABELS[typedValue];
             const checked = paymentType === typedValue;
 
             return (

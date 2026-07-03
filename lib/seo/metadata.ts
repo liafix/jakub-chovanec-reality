@@ -5,10 +5,8 @@ import type { Service } from "@/lib/content/services";
 const SITE_NAME = "Jakub Chovanec | Reality";
 const DEFAULT_SITE_URL = "https://jakub-chovanec-reality.sk";
 const DEFAULT_OG_IMAGE = {
-  url: "/og/jakub-chovanec-reality-og.jpg",
-  width: 1200,
-  height: 630,
-  alt: SITE_NAME
+  url: "/images/jakub.webp",
+  alt: "Jakub Chovanec realitny makler"
 };
 
 export function getSiteUrl() {
