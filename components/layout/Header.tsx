@@ -21,8 +21,8 @@ export function Header() {
     <header
       className={`site-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl transition-all duration-300 ${
         scrolled
-          ? "min-h-16 border-white/10 bg-[#05070a]/92 shadow-[0_12px_40px_rgba(0,0,0,0.2)]"
-          : "min-h-20 border-white/10 bg-[#05070a]/62"
+          ? "min-h-16 border-white/10 bg-[#050505]/92 shadow-[0_12px_40px_rgba(0,0,0,0.2)]"
+          : "min-h-20 border-white/10 bg-[#050505]/62"
       }`}
     >
       <div className="container flex min-h-[inherit] items-center justify-between gap-4">

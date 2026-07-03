@@ -3,8 +3,8 @@ import type { PaymentType, ServiceSlug } from "@/lib/contracts";
 export const company = {
   name: "Jakub Chovanec",
   legalName: "Jakub Chovanec | Reality",
-  descriptor: "Moderny predaj nehnutelnosti",
-  slogan: "Najmladsi realitak na Slovensku",
+  descriptor: "Moderný predaj nehnuteľností",
+  slogan: "Najmladší realiťák na Slovensku",
 
   ico: "",
   email: "kontakt@example.com",
@@ -22,12 +22,12 @@ export const company = {
   baseLocation: "Slovensko",
 
   address: "Slovensko",
-  legalAddress: "Doplnit po potvrdeni obchodnych udajov",
+  legalAddress: "Doplniť po potvrdení obchodných údajov",
   mapAddressTitle: "Slovensko",
   city: "Slovensko",
 
   licensePlate: "",
-  serviceArea: ["Slovensko", "Trenciansky kraj", "Bratislavsky kraj", "online konzultacie"]
+  serviceArea: ["Slovensko", "Trenčiansky kraj", "Bratislavský kraj", "online konzultácie"]
 } as const;
 
 export type ServiceFaq = {
@@ -67,35 +67,35 @@ export type Service = {
   jsonLd: ServiceJsonLdData;
 };
 
-const serviceArea = ["Slovensko", "Trenciansky kraj", "Bratislavsky kraj", "online"];
+const serviceArea = ["Slovensko", "Trenčiansky kraj", "Bratislavský kraj", "online"];
 
 const sellerEstimateSteps: ServiceProcessStep[] = [
   {
-    title: "Zakladne udaje",
-    text: "Majitel posle typ nehnutelnosti, lokalitu, vymeru, stav a planovany termin predaja."
+    title: "Základné údaje",
+    text: "Majiteľ pošle typ nehnuteľnosti, lokalitu, výmeru, stav a plánovaný termín predaja."
   },
   {
-    title: "Trhove porovnanie",
-    text: "Pozrieme sa na konkurenciu, cenu podobnych ponuk a realny dopyt v lokalite."
+    title: "Trhové porovnanie",
+    text: "Pozrieme sa na konkurenciu, cenu podobných ponúk a reálny dopyt v lokalite."
   },
   {
-    title: "Strategia predaja",
-    text: "Odhad ceny doplnime odporucanym postupom prezentacie, inzercie a kvalifikacie zaujemcov."
+    title: "Stratégia predaja",
+    text: "Odhad ceny doplníme odporúčaným postupom prezentácie, inzercie a kvalifikácie záujemcov."
   }
 ];
 
 const consultationSteps: ServiceProcessStep[] = [
   {
     title: "Situacia",
-    text: "Prejdeme aktualnu otazku: predaj, kupa, investicia, vyjednavanie alebo priprava ponuky."
+    text: "Prejdeme aktuálnu otázku: predaj, kúpa, investícia, vyjednávanie alebo príprava ponuky."
   },
   {
-    title: "Moznosti",
-    text: "Porovname rizika, cenu, nacasovanie a prakticke kroky podla realnej situacie."
+    title: "Možnosti",
+    text: "Porovnáme riziká, cenu, načasovanie a praktické kroky podľa reálnej situácie."
   },
   {
-    title: "Akcny plan",
-    text: "Vystupom je jasne odporucanie, co spravit najblizsie a comu sa vyhnut."
+    title: "Akčný plán",
+    text: "Výstupom je jasné odporúčanie, čo spraviť najbližšie a čomu sa vyhnúť."
   }
 ];
 
@@ -104,38 +104,38 @@ export const services: Service[] = [
     slug: "odhad-ceny-nehnutelnosti",
     cardImage: "/images/sluzby/rekonstrukcie-na-kluc.webp",
     cardPreview:
-      "Bezplatny odhad ceny pre majitelov, ktori zvazuju predaj bytu, domu alebo pozemku.",
-    cardImageAlt: "Neutralny placeholder pre realitny odhad",
-    label: "Odhad ceny nehnutelnosti zdarma",
+      "Bezplatný odhad ceny pre majiteľov, ktorí zvažujú predaj bytu, domu alebo pozemku.",
+    cardImageAlt: "Neutrálny placeholder pre realitný odhad",
+    label: "Odhad ceny nehnuteľnosti zdarma",
     shortLabel: "Odhad ceny",
-    h1: "Zistite realnu cenu nehnutelnosti este pred predajom",
+    h1: "Zistite reálnu cenu nehnuteľnosti ešte pred predajom",
     intro:
-      "Hlavny funnel webu pomaha zachytit majitelov, ktori uvazuju nad predajom. Cielom je ziskat kvalifikovane udaje o nehnutelnosti a otvorit obchodny rozhovor skor, nez majitel skonci iba pri portaloch.",
-    metaTitle: "Odhad ceny nehnutelnosti zdarma | Jakub Chovanec",
+      "Hlavný funnel webu pomáha zachytiť majiteľov, ktorí uvažujú nad predajom. Cieľom je získať kvalifikované údaje o nehnuteľnosti a otvoriť obchodný rozhovor skôr, než majiteľ skončí iba pri portáloch.",
+    metaTitle: "Odhad ceny nehnuteľnosti zdarma | Jakub Chovanec",
     metaDescription:
-      "Bezplatny odhad ceny bytu, domu alebo pozemku pre majitelov, ktori zvazuju predaj cez modernu realitnu strategiu.",
+      "Bezplatný odhad ceny bytu, domu alebo pozemku pre majiteľov, ktorí zvažujú predaj cez modernú realitnú stratégiu.",
     localities: serviceArea,
     benefits: [
-      "prvy kontakt s majitelom este pred rozhodnutim predavat",
-      "zaklad pre cenovu strategiu a prezentaciu nehnutelnosti",
-      "kvalifikacia predajneho horizontu, stavu a motivacie",
-      "najvyssi obchodny potencial celeho webu"
+      "prvý kontakt s majiteľom ešte pred rozhodnutím predávať",
+      "základ pre cenovú stratégiu a prezentáciu nehnuteľnosti",
+      "kvalifikácia predajného horizontu, stavu a motivácie",
+      "najvyšší obchodný potenciál celého webu"
     ],
     processSteps: sellerEstimateSteps,
     faq: [
       {
-        question: "Je odhad ceny zavazny?",
+        question: "Je odhad ceny záväzný?",
         answer:
-          "Nie. Ide o bezplatny vstupny odhad a odporucanie dalsieho postupu pred osobnou alebo online konzultaciou."
+          "Nie. Ide o bezplatný vstupný odhad a odporúčanie ďalšieho postupu pred osobnou alebo online konzultáciou."
       },
       {
-        question: "Ake udaje su potrebne?",
+        question: "Aké údaje sú potrebné?",
         answer:
-          "Typ nehnutelnosti, lokalita, vymera, stav, planovany termin predaja a kontaktne udaje."
+          "Typ nehnuteľnosti, lokalita, výmera, stav, plánovaný termín predaja a kontaktné údaje."
       }
     ],
-    primaryCta: "Zisti cenu nehnutelnosti zdarma",
-    secondaryCta: "Rezervovat konzultaciu",
+    primaryCta: "Zisti cenu nehnuteľnosti zdarma",
+    secondaryCta: "Rezervovať konzultáciu",
     paymentType: "consultation_fee",
     jsonLd: {
       serviceType: "Real estate price estimate",
@@ -147,51 +147,51 @@ export const services: Service[] = [
     slug: "predaj-nehnutelnosti",
     cardImage: "/images/prace/praca.webp",
     cardPreview:
-      "Strategia predaja, premium prezentacia, video obsah, inzercia, kvalifikovane obhliadky a vyjednavanie.",
-    cardImageAlt: "Neutralny placeholder pre realitny predaj",
-    label: "Predaj nehnutelnosti",
+      "Stratégia predaja, premium prezentácia, video obsah, inzercia, kvalifikované obhliadky a vyjednávanie.",
+    cardImageAlt: "Neutrálny placeholder pre realitný predaj",
+    label: "Predaj nehnuteľnosti",
     shortLabel: "Predaj",
-    h1: "Moderny predaj nehnutelnosti cez video, strategiu a data",
+    h1: "Moderný predaj nehnuteľnosti cez video, stratégiu a dáta",
     intro:
-      "Predaj nie je iba zverejnenie inzeratu. Dobre nastaveny proces spaja cenu, prezentaciu, distribuciu, kvalifikaciu zaujemcov, vyjednavanie a bezpecne prevedenie transakcie.",
-    metaTitle: "Predaj nehnutelnosti | Jakub Chovanec Reality",
+      "Predaj nie je iba zverejnenie inzerátu. Dobre nastavený proces spája cenu, prezentáciu, distribúciu, kvalifikáciu záujemcov, vyjednávanie a bezpečné prevedenie transakcie.",
+    metaTitle: "Predaj nehnuteľnosti | Jakub Chovanec Reality",
     metaDescription:
-      "Moderny predaj bytu, domu alebo pozemku cez cenovu strategiu, premium prezentaciu, video a kvalifikovane obhliadky.",
+      "Moderný predaj bytu, domu alebo pozemku cez cenovú stratégiu, premium prezentáciu, video a kvalifikované obhliadky.",
     localities: serviceArea,
     benefits: [
-      "cenova strategia namiesto nahodneho odhadu",
-      "premium prezentacia pre vyssi dojem a doveru",
-      "video a socialne siete ako distribucna vyhoda",
-      "vyjednavanie s cielom nepredavat pod hodnotou"
+      "cenová stratégia namiesto náhodného odhadu",
+      "premium prezentácia pre vyšší dojem a dôveru",
+      "video a sociálne siete ako distribučná výhoda",
+      "vyjednávanie s cieľom nepredávať pod hodnotou"
     ],
     processSteps: [
       {
         title: "Cena",
-        text: "Nastavime cenove rozpatie a strategiu podla trhu, lokality a stavu nehnutelnosti."
+        text: "Nastavíme cenové rozpätie a stratégiu podľa trhu, lokality a stavu nehnuteľnosti."
       },
       {
-        title: "Prezentacia",
-        text: "Pripravime nehnutelnost, text, foto/video koncept a argumenty pre kupujucich."
+        title: "Prezentácia",
+        text: "Pripravíme nehnuteľnosť, text, foto/video koncept a argumenty pre kupujúcich."
       },
       {
         title: "Predaj",
-        text: "Riesime inzerciu, kvalifikovane obhliadky, komunikaciu, vyjednavanie a dalsie kroky."
+        text: "Riešime inzerciu, kvalifikované obhliadky, komunikáciu, vyjednávanie a ďalšie kroky."
       }
     ],
     faq: [
       {
-        question: "Preco nestaci dat nehnutelnost iba na portal?",
+        question: "Prečo nestačí dať nehnuteľnosť iba na portál?",
         answer:
-          "Portal je distribucny kanal, nie predajna strategia. Rozhoduje cena, prezentacia, dopyt, vyjednavanie a kvalita zaujemcov."
+          "Portál je distribučný kanál, nie predajná stratégia. Rozhoduje cena, prezentácia, dopyt, vyjednávanie a kvalita záujemcov."
       },
       {
-        question: "Pomaha video pri predaji?",
+        question: "Pomáha video pri predaji?",
         answer:
-          "Ano, najma pri budovani dovery, odliseni ponuky a pritiahnuti pozornosti mimo realitnych portalov."
+          "Áno, najmä pri budovaní dôvery, odlíšení ponuky a pritiahnutí pozornosti mimo realitných portálov."
       }
     ],
-    primaryCta: "Zisti cenu nehnutelnosti zdarma",
-    secondaryCta: "Rezervovat konzultaciu",
+    primaryCta: "Zisti cenu nehnuteľnosti zdarma",
+    secondaryCta: "Rezervovať konzultáciu",
     paymentType: "consultation_fee",
     jsonLd: {
       serviceType: "Real estate sales strategy",
@@ -203,49 +203,49 @@ export const services: Service[] = [
     slug: "databaza-kupujucich",
     cardImage: "/images/detail/background2.webp",
     cardPreview:
-      "Databaza ludi, ktori hladaju byt, dom alebo pozemok podla lokality, rozpoctu a financovania.",
-    cardImageAlt: "Neutralny placeholder pre databazu kupujucich",
-    label: "Databaza kupujucich",
-    shortLabel: "Kupujuci",
-    h1: "Hladate nehnutelnost? Zaradte sa do databazy kupujucich",
+      "Databáza ľudí, ktorí hľadajú byt, dom alebo pozemok podľa lokality, rozpočtu a financovania.",
+    cardImageAlt: "Neutrálny placeholder pre databázu kupujúcich",
+    label: "Databáza kupujúcich",
+    shortLabel: "Kupujúci",
+    h1: "Hľadáte nehnuteľnosť? Zaraďte sa do databázy kupujúcich",
     intro:
-      "Kupujuci mozu zanechat lokalitu, rozpocet, typ nehnutelnosti, sposob financovania a casovy horizont. Pre Jakuba to vytvara vlastny zoznam dopytu mimo portalov.",
-    metaTitle: "Databaza kupujucich | Jakub Chovanec Reality",
+      "Kupujúci môžu zanechať lokalitu, rozpočet, typ nehnuteľnosti, spôsob financovania a časový horizont. Pre Jakuba to vytvára vlastný zoznam dopytu mimo portálov.",
+    metaTitle: "Databáza kupujúcich | Jakub Chovanec Reality",
     metaDescription:
-      "Databaza kupujucich pre ludi, ktori hladaju byt, dom alebo pozemok a chcu byt kontaktovani pri vhodnej ponuke.",
+      "Databáza kupujúcich pre ľudí, ktorí hľadajú byt, dom alebo pozemok a chcú byť kontaktovaní pri vhodnej ponuke.",
     localities: serviceArea,
     benefits: [
-      "vlastny dopyt pre buduce predajne prilezitosti",
-      "lepsie parovanie kupujucich s ponukami",
-      "rychlejsie overenie financovania a casoveho horizontu",
-      "hodnota pre majitelov, ktori chcu predavat efektivne"
+      "vlastný dopyt pre budúce predajné príležitosti",
+      "lepšie párovanie kupujúcich s ponukami",
+      "rýchlejšie overenie financovania a časového horizontu",
+      "hodnota pre majiteľov, ktorí chcú predávať efektívne"
     ],
     processSteps: [
       {
         title: "Dopyt",
-        text: "Kupujuci doplni lokalitu, rozpocet, typ nehnutelnosti a sposob financovania."
+        text: "Kupujúci doplní lokalitu, rozpočet, typ nehnuteľnosti a spôsob financovania."
       },
       {
-        title: "Kvalifikacia",
-        text: "Dopyt sa rozdeli podla pripravenosti, realnosti rozpoctu a casoveho horizontu."
+        title: "Kvalifikácia",
+        text: "Dopyt sa rozdelí podľa pripravenosti, reálnosti rozpočtu a časového horizontu."
       },
       {
         title: "Prepojenie",
-        text: "Pri vhodnej ponuke moze Jakub rychlo kontaktovat relevantnych zaujemcov."
+        text: "Pri vhodnej ponuke môže Jakub rýchlo kontaktovať relevantných záujemcov."
       }
     ],
     faq: [
       {
-        question: "Je zapis do databazy plateny?",
-        answer: "Nie. V tejto faze ide o dopytovy funnel a pripravu na Phase 4 formular."
+        question: "Je zápis do databázy platený?",
+        answer: "Nie. V tejto fáze ide o dopytový funnel a prípravu na Phase 4 formulár."
       },
       {
-        question: "Co mam doplnit ako kupujuci?",
-        answer: "Lokalitu, rozpocet, typ nehnutelnosti, financovanie, casovy horizont a kontakt."
+        question: "Čo mám doplniť ako kupujúci?",
+        answer: "Lokalitu, rozpočet, typ nehnuteľnosti, financovanie, časový horizont a kontakt."
       }
     ],
-    primaryCta: "Hladam nehnutelnost",
-    secondaryCta: "Kontaktovat Jakuba",
+    primaryCta: "Hľadám nehnuteľnosť",
+    secondaryCta: "Kontaktovať Jakuba",
     jsonLd: {
       serviceType: "Buyer database",
       areaServed: serviceArea,
@@ -256,49 +256,49 @@ export const services: Service[] = [
     slug: "vybrane-ponuky",
     cardImage: "/images/proof/dokaz-pred-kontaktom.webp",
     cardPreview:
-      "Bezpecne placeholder karty pre vybrane ponuky, pripravene na neskorsie realne nehnutelnosti.",
-    cardImageAlt: "Neutralny placeholder pre vybrane realitne ponuky",
-    label: "Vybrane ponuky",
+      "Bezpečné placeholder karty pre vybrané ponuky, pripravené na neskoršie reálne nehnuteľnosti.",
+    cardImageAlt: "Neutrálny placeholder pre vybrané realitné ponuky",
+    label: "Vybrané ponuky",
     shortLabel: "Ponuky",
-    h1: "Vybrane ponuky a property landing pages",
+    h1: "Vybrané ponuky a property landing pages",
     intro:
-      "Sekcia ukazuje, ako budu neskor prezentovane konkretne nehnutelnosti: video, fotky, lokalita, benefity, mapa a jasna vyzva na rezervaciu obhliadky.",
-    metaTitle: "Vybrane ponuky | Jakub Chovanec Reality",
+      "Sekcia ukazuje, ako budú neskôr prezentované konkrétne nehnuteľnosti: video, fotky, lokalita, benefity, mapa a jasná výzva na rezerváciu obhliadky.",
+    metaTitle: "Vybrané ponuky | Jakub Chovanec Reality",
     metaDescription:
-      "Placeholder vybranych realitnych ponuk pripraveny pre buduce property landing pages a rezervacie obhliadok.",
+      "Placeholder vybraných realitných ponúk pripravený pre budúce property landing pages a rezervácie obhliadok.",
     localities: serviceArea,
     benefits: [
-      "ukazka premium prezentacie bez cudzich fotografii",
-      "priestor pre buduce samostatne landing pages",
-      "CTA pre rezervaciu obhliadky a kvalifikaciu zaujemcov",
-      "dovera pre majitelov aj kupujucich"
+      "ukážka premium prezentácie bez cudzích fotografií",
+      "priestor pre budúce samostatné landing pages",
+      "CTA pre rezerváciu obhliadky a kvalifikáciu záujemcov",
+      "dôvera pre majiteľov aj kupujúcich"
     ],
     processSteps: [
       {
         title: "Karta",
-        text: "Zakladne udaje, lokalita, cena placeholder a hlavna vyhoda."
+        text: "Základné údaje, lokalita, cena placeholder a hlavná výhoda."
       },
       {
         title: "Detail",
-        text: "Neskor pribudne video, foto, mapa, benefity a otazky kupujucich."
+        text: "Neskôr pribudne video, foto, mapa, benefity a otázky kupujúcich."
       },
       {
         title: "Obhliadka",
-        text: "Zaujemca sa kvalifikuje pred tym, nez sa rezervuje termin."
+        text: "Záujemca sa kvalifikuje pred tým, než sa rezervuje termín."
       }
     ],
     faq: [
       {
-        question: "Su ponuky realne?",
-        answer: "Nie. Vo Phase 2 ide iba o bezpecne placeholder karty bez cudzich obrazkov."
+        question: "Sú ponuky reálne?",
+        answer: "Nie. Vo Phase 2 ide iba o bezpečné placeholder karty bez cudzích obrázkov."
       },
       {
-        question: "Kedy vzniknu realne landing pages?",
-        answer: "Az po dodani schvalenych podkladov alebo v neskorsej faze projektu."
+        question: "Kedy vzniknú reálne landing pages?",
+        answer: "Až po dodaní schválených podkladov alebo v neskoršej fáze projektu."
       }
     ],
-    primaryCta: "Pozriet placeholder ponuky",
-    secondaryCta: "Rezervovat obhliadku",
+    primaryCta: "Pozrieť placeholder ponuky",
+    secondaryCta: "Rezervovať obhliadku",
     jsonLd: {
       serviceType: "Selected real estate listings",
       areaServed: serviceArea,
@@ -309,37 +309,37 @@ export const services: Service[] = [
     slug: "rezervacia-obhliadky",
     cardImage: "/images/contact/contact-background.webp",
     cardPreview:
-      "Kvalifikovana ziadost o obhliadku pre ludi, ktori maju zaujem o konkretnu ponuku.",
-    cardImageAlt: "Neutralny placeholder pre rezervaciu obhliadky",
-    label: "Rezervacia obhliadky",
+      "Kvalifikovaná žiadosť o obhliadku pre ľudí, ktorí majú záujem o konkrétnu ponuku.",
+    cardImageAlt: "Neutrálny placeholder pre rezerváciu obhliadky",
+    label: "Rezervácia obhliadky",
     shortLabel: "Obhliadka",
-    h1: "Rezervacia obhliadky s kvalifikaciou zaujemcu",
+    h1: "Rezervácia obhliadky s kvalifikáciou záujemcu",
     intro:
-      "Viewing request funnel pomaha znizit chaos. Pred obhliadkou je vhodne vediet, o aku nehnutelnost ide, aky ma zaujemca rozpocet, financovanie a casovy horizont.",
-    metaTitle: "Rezervacia obhliadky | Jakub Chovanec Reality",
+      "Viewing request funnel pomáha znížiť chaos. Pred obhliadkou je vhodné vedieť, o akú nehnuteľnosť ide, aký má záujemca rozpočet, financovanie a časový horizont.",
+    metaTitle: "Rezervácia obhliadky | Jakub Chovanec Reality",
     metaDescription:
-      "Kvalifikovana ziadost o obhliadku nehnutelnosti pre zaujemcov o byt, dom alebo pozemok.",
+      "Kvalifikovaná žiadosť o obhliadku nehnuteľnosti pre záujemcov o byt, dom alebo pozemok.",
     localities: serviceArea,
     benefits: [
-      "menej nekvalifikovanych obhliadok",
-      "lepsia disciplina zaujemcov",
-      "rychlejsie rozhodovanie pri silnych kupujucich",
-      "lepsia ochrana casu majitela aj realitaka"
+      "menej nekvalifikovaných obhliadok",
+      "lepšia disciplína záujemcov",
+      "rýchlejšie rozhodovanie pri silných kupujúcich",
+      "lepšia ochrana času majiteľa aj realiťáka"
     ],
     processSteps: consultationSteps,
     faq: [
       {
-        question: "Je rezervacia obhliadky automaticky potvrdena?",
-        answer: "Nie. Po odoslani ziadosti treba termin este potvrdit."
+        question: "Je rezervácia obhliadky automaticky potvrdená?",
+        answer: "Nie. Po odoslaní žiadosti treba termín ešte potvrdiť."
       },
       {
-        question: "Preco kvalifikovat zaujemcu?",
+        question: "Prečo kvalifikovať záujemcu?",
         answer:
-          "Aby obhliadky davali zmysel pre predavajuceho, kupujuceho aj realitneho maklera."
+          "Aby obhliadky dávali zmysel pre predávajúceho, kupujúceho aj realitného makléra."
       }
     ],
-    primaryCta: "Rezervovat obhliadku",
-    secondaryCta: "Kontaktovat Jakuba",
+    primaryCta: "Rezervovať obhliadku",
+    secondaryCta: "Kontaktovať Jakuba",
     paymentType: "reservation_fee",
     jsonLd: {
       serviceType: "Property viewing request",
@@ -351,36 +351,36 @@ export const services: Service[] = [
     slug: "realitna-konzultacia",
     cardImage: "/hero/background-interior.webp",
     cardPreview:
-      "Platena 1:1 konzultacia pred predajom, kupou alebo investicnym rozhodnutim.",
-    cardImageAlt: "Neutralny placeholder pre realitnu konzultaciu",
-    label: "Realitna konzultacia 1:1",
-    shortLabel: "Konzultacia",
-    h1: "Realitna konzultacia 1:1 - 60 min",
+      "Platená 1:1 konzultácia pred predajom, kúpou alebo investičným rozhodnutím.",
+    cardImageAlt: "Neutrálny placeholder pre realitnú konzultáciu",
+    label: "Realitná konzultácia 1:1",
+    shortLabel: "Konzultácia",
+    h1: "Realitná konzultácia 1:1 - 60 min",
     intro:
-      "Sekundarny produkt pre ludi, ktori chcu konkretne odporucanie pred predajom, kupou alebo investiciou. Konzultacia filtruje vaznych zaujemcov a vytvara okamzity prijem.",
-    metaTitle: "Realitna konzultacia 1:1 | Jakub Chovanec",
+      "Sekundárny produkt pre ľudí, ktorí chcú konkrétne odporúčanie pred predajom, kúpou alebo investíciou. Konzultácia filtruje vážnych záujemcov a vytvára okamžitý príjem.",
+    metaTitle: "Realitná konzultácia 1:1 | Jakub Chovanec",
     metaDescription:
-      "Platena 60-minutova realitna konzultacia pred predajom, kupou alebo investicnym rozhodnutim.",
+      "Platená 60-minútová realitná konzultácia pred predajom, kúpou alebo investičným rozhodnutím.",
     localities: serviceArea,
     benefits: [
-      "rychle odporucanie bez plneho predajneho procesu",
-      "filter pre vaznych klientov",
-      "sekundarny prijem cez Stripe v neskorsej faze",
-      "vhodne pred predajom, kupou alebo investiciou"
+      "rýchle odporúčanie bez plného predajného procesu",
+      "filter pre vážnych klientov",
+      "sekundárny príjem cez Stripe v neskoršej fáze",
+      "vhodné pred predajom, kúpou alebo investíciou"
     ],
     processSteps: consultationSteps,
     faq: [
       {
-        question: "Je konzultacia hlavny produkt webu?",
-        answer: "Nie. Hlavny produkt je seller estimate funnel, konzultacia je sekundarna."
+        question: "Je konzultácia hlavný produkt webu?",
+        answer: "Nie. Hlavný produkt je seller estimate funnel, konzultácia je sekundárna."
       },
       {
         question: "Bude platba riesena cez Stripe?",
-        answer: "Ano, ale uprava Stripe produktu patri az do Phase 4."
+        answer: "Áno, ale úprava Stripe produktu patrí až do Phase 4."
       }
     ],
-    primaryCta: "Rezervovat konzultaciu",
-    secondaryCta: "Zistit cenu zdarma",
+    primaryCta: "Rezervovať konzultáciu",
+    secondaryCta: "Zistiť cenu zdarma",
     paymentType: "consultation_fee",
     jsonLd: {
       serviceType: "Real estate consultation",
@@ -392,36 +392,36 @@ export const services: Service[] = [
     slug: "realitny-start",
     cardImage: "/images/footer/footer-background.webp",
     cardPreview:
-      "Maly mentoring teaser pre ludi, ktori chcu pochopit zaciatky v realitach. Nie je hlavnym produktom.",
-    cardImageAlt: "Neutralny placeholder pre realitny mentoring",
-    label: "Realitny start 1:1",
+      "Malý mentoring teaser pre ľudí, ktorí chcú pochopiť začiatky v realitách. Nie je hlavným produktom.",
+    cardImageAlt: "Neutrálny placeholder pre realitný mentoring",
+    label: "Realitný štart 1:1",
     shortLabel: "Mentoring",
-    h1: "Realitny start 1:1 ako sekundarny mentoring",
+    h1: "Realitný štart 1:1 ako sekundárny mentoring",
     intro:
-      "Mentoring moze neskor monetizovat osobnu znacku, ale nesmie prebit hlavny seller funnel. Vo Phase 2 ostava iba ako maly teaser.",
-    metaTitle: "Realitny start 1:1 | Jakub Chovanec",
+      "Mentoring môže neskôr monetizovať osobnú značku, ale nesmie prebiť hlavný seller funnel. Vo Phase 2 ostáva iba ako malý teaser.",
+    metaTitle: "Realitný štart 1:1 | Jakub Chovanec",
     metaDescription:
-      "Sekundarny mentoringovy teaser pre zaciatky v realitach, bez prebitia hlavneho seller funnelu.",
+      "Sekundárny mentoringový teaser pre začiatky v realitách, bez prebitia hlavného seller funnelu.",
     localities: serviceArea,
     benefits: [
-      "monetizuje osobnu znacku neskor",
-      "ostava mensi ako seller funnel",
-      "vhodne pre zaujemcov o realitny start",
-      "neodvadza pozornost od majitelov nehnutelnosti"
+      "monetizuje osobnú značku neskôr",
+      "ostáva menší ako seller funnel",
+      "vhodné pre záujemcov o realitný štart",
+      "neodvádza pozornosť od majiteľov nehnuteľnosti"
     ],
     processSteps: consultationSteps,
     faq: [
       {
-        question: "Je mentoring hlavny biznis webu?",
-        answer: "Nie. Je to iba sekundarna ponuka, hlavny biznis je predaj nehnutelnosti a seller leads."
+        question: "Je mentoring hlavný biznis webu?",
+        answer: "Nie. Je to iba sekundárna ponuka, hlavný biznis je predaj nehnuteľnosti a seller leads."
       },
       {
         question: "Bude mentoring plateny?",
-        answer: "Mozno neskor. Vo Phase 2 je to iba obsahovy teaser."
+        answer: "Možno neskôr. Vo Phase 2 je to iba obsahový teaser."
       }
     ],
-    primaryCta: "Mam zaujem o mentoring",
-    secondaryCta: "Najprv konzultacia",
+    primaryCta: "Mám záujem o mentoring",
+    secondaryCta: "Najprv konzultácia",
     paymentType: "consultation_fee",
     jsonLd: {
       serviceType: "Real estate mentoring",

@@ -4,17 +4,17 @@
 @source "../lib";
 
 :root {
-  --background: #f7f4ed;
+  --background: #fff8ea;
   --foreground: #141414;
   --muted: #6f6a61;
   --line: rgba(20, 20, 20, 0.13);
   --panel: rgba(255, 252, 245, 0.78);
-  --graphite: #1b1c1b;
-  --signal: #e44f22;
+  --graphite: #111111;
+  --signal: #f97316;
   --steel: #6f858a;
-  --success: #257a57;
+  --success: #d99a2b;
   --hero-scroll-progress: 0;
-  --section-accent: #e44f22;
+  --section-accent: #f6c453;
   --motion-duration: 0.45s;
 }
 
@@ -32,8 +32,8 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.85), transparent 28rem),
-    linear-gradient(135deg, #fbf7ef 0%, #eee8dc 42%, #f8f6ef 100%);
+    radial-gradient(circle at 15% 10%, rgba(255, 248, 234, 0.92), transparent 28rem),
+    linear-gradient(135deg, #fff8ea 0%, #f3eadb 42%, #fff7ed 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 0;
@@ -76,7 +76,7 @@ select {
 }
 
 ::selection {
-  background: rgba(228, 79, 34, 0.24);
+  background: rgba(246, 196, 83, 0.34);
 }
 
 .container {
@@ -98,8 +98,8 @@ select {
   min-height: 48px;
   border: 1px solid rgba(20, 20, 20, 0.88);
   border-radius: 6px;
-  background: var(--graphite);
-  color: #fffaf0;
+  background: linear-gradient(135deg, #f6c453, #f97316);
+  color: #111111;
   padding: 0.85rem 1.15rem;
   font-weight: 700;
   transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
@@ -107,7 +107,7 @@ select {
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  background: #000;
+  background: linear-gradient(135deg, #ffd66d, #fb8a2a);
 }
 
 .btn-secondary {
@@ -253,13 +253,14 @@ select {
 }
 
 .hero-primary-cta--light {
-  border-color: rgba(255, 250, 240, 0.88);
-  background: #fffaf0;
-  color: #11100e;
+  border-color: rgba(246, 196, 83, 0.88);
+  background: linear-gradient(135deg, #fff8ea, #f6c453 52%, #f97316);
+  color: #111111;
+  box-shadow: 0 18px 44px rgba(249, 115, 22, 0.22);
 }
 
 .hero-primary-cta--light:hover {
-  background: #fff;
+  background: linear-gradient(135deg, #ffffff, #ffd66d 52%, #fb8a2a);
 }
 
 .hero-secondary-cta--light {
@@ -343,10 +344,10 @@ select {
 
 .phase3-map-grid {
   background-image:
-    linear-gradient(rgba(106, 167, 255, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(106, 167, 255, 0.12) 1px, transparent 1px),
-    radial-gradient(circle at 28% 36%, rgba(27, 224, 155, 0.18), transparent 9rem),
-    radial-gradient(circle at 68% 54%, rgba(106, 167, 255, 0.16), transparent 10rem);
+    linear-gradient(rgba(246, 196, 83, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(246, 196, 83, 0.13) 1px, transparent 1px),
+    radial-gradient(circle at 28% 36%, rgba(249, 115, 22, 0.16), transparent 9rem),
+    radial-gradient(circle at 68% 54%, rgba(246, 196, 83, 0.16), transparent 10rem);
   background-size: 34px 34px, 34px 34px, auto, auto;
 }
 
@@ -360,15 +361,15 @@ select {
 
 .phase3-section-dark {
   background:
-    radial-gradient(circle at 16% 12%, rgba(106, 167, 255, 0.12), transparent 24rem),
-    radial-gradient(circle at 86% 18%, rgba(27, 224, 155, 0.09), transparent 22rem),
-    linear-gradient(135deg, #05070a 0%, #0b1118 48%, #05070a 100%);
+    radial-gradient(circle at 16% 12%, rgba(246, 196, 83, 0.13), transparent 24rem),
+    radial-gradient(circle at 86% 18%, rgba(249, 115, 22, 0.1), transparent 22rem),
+    linear-gradient(135deg, #050505 0%, #111111 48%, #050505 100%);
 }
 
 .phase3-section-soft {
   background:
-    radial-gradient(circle at 14% 8%, rgba(106, 167, 255, 0.1), transparent 22rem),
-    linear-gradient(135deg, #eef2f4 0%, #f7f4ec 52%, #e8edf0 100%);
+    radial-gradient(circle at 14% 8%, rgba(246, 196, 83, 0.14), transparent 22rem),
+    linear-gradient(135deg, #fff8ea 0%, #fff7ed 52%, #f5e6cf 100%);
 }
 
 .phase3-pill {
@@ -391,14 +392,15 @@ select {
 }
 
 .hero-primary-cta {
-  border-color: rgba(0, 0, 0, 0.92);
-  background: #11100e;
-  color: #fffaf0;
+  border-color: rgba(246, 196, 83, 0.88);
+  background: linear-gradient(135deg, #fff8ea, #f6c453 52%, #f97316);
+  color: #111111;
+  box-shadow: 0 18px 44px rgba(249, 115, 22, 0.22);
 }
 
 .hero-secondary-cta {
-  border-color: rgba(20, 20, 20, 0.13);
-  background: rgba(255, 255, 255, 0.52);
+  border-color: rgba(246, 196, 83, 0.22);
+  background: rgba(255, 248, 234, 0.08);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
