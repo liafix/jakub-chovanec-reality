@@ -4,20 +4,20 @@ export const company = {
   name: "Jakub Chovanec",
   legalName: "Jakub Chovanec | Reality",
   descriptor: "Moderný predaj nehnuteľností",
-  slogan: "Najmladší realiťák na Slovensku",
+  slogan: "Moderný realitný maklér z Trnavy",
 
   ico: "",
-  email: "kontakt@example.com",
-  emailHref: "mailto:kontakt@example.com",
+  email: "chovanec@andelzachar.sk",
+  emailHref: "mailto:chovanec@andelzachar.sk",
 
-  phoneDisplay: "+421 900 000 000",
-  phoneHref: "tel:+421900000000",
+  phoneDisplay: "+421 944 963 908",
+  phoneHref: "tel:+421944963908",
 
-  mobileDisplay: "+421 900 000 000",
-  mobileHref: "tel:+421900000000",
-  whatsappDisplay: "+421 900 000 000",
+  mobileDisplay: "+421 944 963 908",
+  mobileHref: "tel:+421944963908",
+  whatsappDisplay: "+421 944 963 908",
   whatsappHref:
-    "https://wa.me/421900000000?text=Dobry%20den%2C%20mam%20zaujem%20o%20realitnu%20sluzbu.",
+    "https://wa.me/421944963908?text=Dobr%C3%BD%20de%C5%88%2C%20m%C3%A1m%20z%C3%A1ujem%20o%20realitn%C3%BA%20slu%C5%BEbu.",
 
   baseLocation: "Slovensko",
 
@@ -254,50 +254,50 @@ export const services: Service[] = [
   },
   {
     slug: "vybrane-ponuky",
-    cardImage: "/images/proof/dokaz-pred-kontaktom.webp",
+    cardImage: "/images/listings/property-610000.webp",
     cardPreview:
-      "Bezpečné placeholder karty pre vybrané ponuky, pripravené na neskoršie reálne nehnuteľnosti.",
-    cardImageAlt: "Neutrálny placeholder pre vybrané realitné ponuky",
+      "Ukážka vybraných nehnuteľností s lokálnymi fotografiami, cenou, lokalitou a základnými parametrami.",
+    cardImageAlt: "Samostatná budova s 3 samostatnými jednotkami v Piešťanoch",
     label: "Vybrané ponuky",
     shortLabel: "Ponuky",
-    h1: "Vybrané ponuky a property landing pages",
+    h1: "Vybrané nehnuteľnosti z aktuálnej ponuky",
     intro:
-      "Sekcia ukazuje, ako budú neskôr prezentované konkrétne nehnuteľnosti: video, fotky, lokalita, benefity, mapa a jasná výzva na rezerváciu obhliadky.",
+      "Vybrané ponuky ukazujú, ako pri predaji pomáha príprava, kvalitná prezentácia, správna cena a jasná komunikácia so záujemcami.",
     metaTitle: "Vybrané ponuky | Jakub Chovanec Reality",
     metaDescription:
-      "Placeholder vybraných realitných ponúk pripravený pre budúce property landing pages a rezervácie obhliadok.",
+      "Vybrané realitné ponuky Jakuba Chovanca s lokálnymi fotografiami, cenou, lokalitou a základnými parametrami.",
     localities: serviceArea,
     benefits: [
-      "ukážka premium prezentácie bez cudzích fotografií",
-      "priestor pre budúce samostatné landing pages",
-      "CTA pre rezerváciu obhliadky a kvalifikáciu záujemcov",
-      "dôvera pre majiteľov aj kupujúcich"
+      "lokálne fotografie dodané pre tento web",
+      "prehľadná cena, lokalita a základné parametre",
+      "prezentácia podporujúca dôveru pred obhliadkou",
+      "dôraz na prípravu a férovú komunikáciu"
     ],
     processSteps: [
       {
-        title: "Karta",
-        text: "Základné údaje, lokalita, cena placeholder a hlavná výhoda."
+        title: "Príprava",
+        text: "Ponuka potrebuje jasné údaje, vhodné fotografie a zrozumiteľný príbeh pre kupujúceho."
       },
       {
-        title: "Detail",
-        text: "Neskôr pribudne video, foto, mapa, benefity a otázky kupujúcich."
+        title: "Prezentácia",
+        text: "Cena, lokalita a parametre musia byť čitateľné bez zbytočného hľadania."
       },
       {
         title: "Obhliadka",
-        text: "Záujemca sa kvalifikuje pred tým, než sa rezervuje termín."
+        text: "Záujemca má dostať jasný ďalší krok a komunikáciu, ktorá šetrí čas obom stranám."
       }
     ],
     faq: [
       {
-        question: "Sú ponuky reálne?",
-        answer: "Nie. Vo Phase 2 ide iba o bezpečné placeholder karty bez cudzích obrázkov."
+        question: "Sú fotografie lokálne?",
+        answer: "Áno. Použité sú iba lokálne súbory dodané do projektu, bez sťahovania externých obrázkov."
       },
       {
-        question: "Kedy vzniknú reálne landing pages?",
-        answer: "Až po dodaní schválených podkladov alebo v neskoršej fáze projektu."
+        question: "Kam vedie celá ponuka makléra?",
+        answer: "Na oficiálny verejný profil makléra, kde môžu byť dostupné aktuálne informácie o ponuke."
       }
     ],
-    primaryCta: "Pozrieť placeholder ponuky",
+    primaryCta: "Pozrieť vybrané ponuky",
     secondaryCta: "Rezervovať obhliadku",
     jsonLd: {
       serviceType: "Selected real estate listings",

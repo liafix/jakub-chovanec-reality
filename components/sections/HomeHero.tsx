@@ -3,7 +3,6 @@ import {
   ArrowDown,
   ArrowUpRight,
   BadgeEuro,
-  BarChart3,
   Building2,
   CheckCircle2,
   MapPin,
@@ -17,23 +16,23 @@ import { FloatingElement } from "@/components/motion/effects/FloatingElement";
 import { MagneticButton } from "@/components/motion/effects/MagneticButton";
 
 const trustItems = [
-  { label: "Instagram audience", value: "placeholder" },
-  { label: "Andel&Zachar background", value: "placeholder" },
-  { label: "Referencie", value: "placeholder" },
-  { label: "Aktívne ponuky", value: "placeholder" }
+  { label: "Realitný maklér", value: "Trnava" },
+  { label: "Kvalitná príprava ponuky", value: "Prezentácia" },
+  { label: "Precíznosť v procese", value: "Detail" },
+  { label: "Kompletný servis pri predaji", value: "Servis" }
 ];
 
 const estimateRows = [
   ["Typ", "3-izbový byt"],
-  ["Lokalita", "Trenčín / BA"],
-  ["Výmera", "74 m2"],
+  ["Lokalita", "Trnava"],
+  ["Výmera", "74 m²"],
   ["Stav", "dobrý štandard"]
 ];
 
 const dashboardItems = [
-  { icon: Users, label: "Seller leads", value: "+24%" },
-  { icon: PlaySquare, label: "Video reach", value: "Reels" },
-  { icon: Building2, label: "Listings", value: "3" }
+  { icon: Users, label: "Seller lead", value: "odhad" },
+  { icon: PlaySquare, label: "Prezentácia", value: "video" },
+  { icon: Building2, label: "Ponuky", value: "3" }
 ];
 
 function MiniMap() {
@@ -90,7 +89,7 @@ function HeroVisual() {
               <div className="h-full w-full bg-[linear-gradient(160deg,transparent_0_52%,rgba(255,255,255,0.5)_52%_53%,transparent_53%),linear-gradient(40deg,rgba(0,0,0,0.22),transparent_42%)]" />
             </div>
             <div className="mt-4 grid grid-cols-3 gap-2 text-xs font-bold text-black/60">
-              <span>74 m2</span>
+              <span>74 m²</span>
               <span>3 izby</span>
               <span>video</span>
             </div>
@@ -133,13 +132,13 @@ function HeroVisual() {
         <div className="grid gap-4 md:grid-cols-[1fr_0.72fr]">
           <MiniMap />
           <div className="grid gap-3">
-            {["Reel: pricing", "Reel: obhliadka", "Lead preview"].map((item, index) => (
+            {["Cena", "Prezentácia", "Lead preview"].map((item, index) => (
               <article key={item} className="relative min-h-24 overflow-hidden rounded-lg border border-white/10 bg-white/[0.055] p-3 text-white">
                 <div className="absolute right-3 top-3 grid size-7 place-items-center rounded-full bg-white/10">
                   {index === 2 ? <CheckCircle2 size={15} aria-hidden="true" /> : <PlaySquare size={15} aria-hidden="true" />}
                 </div>
                 <p className="max-w-[8rem] text-sm font-black">{item}</p>
-                <p className="mt-3 text-xs leading-5 text-white/48">Neutrálny mockup bez social media assetov.</p>
+                <p className="mt-3 text-xs leading-5 text-white/48">Neutrálny mockup realitného procesu.</p>
               </article>
             ))}
           </div>
@@ -163,12 +162,12 @@ export function HomeHero() {
       <div className="container relative z-20 grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(28rem,0.9fr)] lg:items-center">
         <div className="hero-content max-w-4xl" data-hero-content>
           <p className="hero-kicker text-xs font-black uppercase tracking-[0.22em] text-[#F6C453] sm:text-sm" data-hero-kicker>
-            Jakub Chovanec / Reality
+            Jakub Chovanec / Realitný maklér Trnava
           </p>
 
           <h1 className="hero-display-title hero-display-title--light mt-7 max-w-5xl">
-            <span data-text-mask-line>Najmladší realiťák na Slovensku.</span>
-            <span data-text-mask-line>Moderný predaj nehnuteľností cez video, stratégiu a dáta.</span>
+            <span data-text-mask-line>Moderný realitný maklér z Trnavy.</span>
+            <span data-text-mask-line>Predaj nehnuteľnosti potrebuje prípravu, prezentáciu a férovú komunikáciu.</span>
           </h1>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-white/68 sm:text-lg" data-hero-fade>
@@ -203,11 +202,11 @@ export function HomeHero() {
           <div className="mt-8 flex flex-wrap gap-3 text-sm font-bold text-white/58" data-hero-fade>
             <span className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.045] px-3 py-2">
               <ShieldCheck size={16} className="text-[#F6C453]" aria-hidden="true" />
-              bez cudzích fotografií
+              kvalitná prezentácia
             </span>
             <span className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.045] px-3 py-2">
               <Sparkles size={16} className="text-[#F6C453]" aria-hidden="true" />
-              realitné UI storytelling
+              férová komunikácia
             </span>
           </div>
         </div>

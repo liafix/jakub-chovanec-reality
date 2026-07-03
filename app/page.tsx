@@ -1,20 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import {
-  ArrowUpRight,
-  BadgeEuro,
-  Building2,
-  CalendarCheck,
-  CheckCircle2,
-  Home,
-  MapPin,
-  PlaySquare,
-  ShieldCheck,
-  Users
-} from "lucide-react";
+import { ArrowUpRight, BadgeEuro, CalendarCheck, Home, PlaySquare, ShieldCheck, Users } from "lucide-react";
 import { HomePageMotion } from "@/components/motion/HomePageMotion";
+import { AboutJakubSection } from "@/components/sections/AboutJakubSection";
 import { CoreServicesSection } from "@/components/sections/CoreServicesSection";
 import { DetailCraftSection } from "@/components/sections/DetailCraftSection";
+import { FeaturedListingsSection } from "@/components/sections/FeaturedListingsSection";
 import { HomeHero } from "@/components/sections/HomeHero";
 import { InteriorProcessSection } from "@/components/sections/InteriorProcessSection";
 import { ProofBeforeContactSection } from "@/components/sections/ProofBeforeContactSection";
@@ -43,12 +34,6 @@ const buyerSignals = [
   { icon: CalendarCheck, title: "Timeframe", text: "Kedy chce kupujúci rozhodnúť." }
 ];
 
-const listingPlaceholders = [
-  { title: "Mestský byt", location: "Lokalita placeholder", price: "Cena na požiadanie", tag: "video ready" },
-  { title: "Rodinný dom", location: "Lokalita placeholder", price: "Pripravuje sa", tag: "seller lead" },
-  { title: "Stavebný pozemok", location: "Lokalita placeholder", price: "Placeholder", tag: "map view" }
-];
-
 export default function HomePage() {
   return (
     <HomePageMotion>
@@ -64,6 +49,8 @@ export default function HomePage() {
         <InteriorProcessSection />
 
         <DetailCraftSection />
+
+        <AboutJakubSection />
 
         <section
           id="odhad-ceny"
@@ -154,54 +141,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section
-          id="vybrane-ponuky"
-          data-scene-stage="index"
-          data-scene-intensity="rest"
-          className="relative z-10 overflow-hidden bg-[#f2f5f5] py-20 text-[#0a0d10] md:py-28"
-        >
-          <div className="absolute inset-0 -z-10 opacity-60 phase3-map-grid" aria-hidden="true" />
-          <div className="container">
-            <div data-motion="reveal" className="max-w-3xl">
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-[#D99A2B]">Vybrané ponuky</p>
-              <h2 className="mt-5 font-serif text-5xl font-semibold leading-[0.98] sm:text-6xl">
-                Property cards bez cudzích fotografií.
-              </h2>
-              <p className="mt-7 max-w-2xl text-base leading-8 text-black/66 sm:text-lg">
-                Reálne listingy prídu až po schválených podkladoch. Zatiaľ sekcia ukazuje miesto pre budúce property
-                landing pages, mapu, video a žiadosť o obhliadku.
-              </p>
-            </div>
-            <div data-motion="stagger" className="mt-10 grid gap-4 md:grid-cols-3">
-              {listingPlaceholders.map((item) => (
-                <article key={item.title} data-motion-item className="overflow-hidden rounded-lg border border-black/10 bg-white/82 shadow-[0_24px_74px_rgba(15,23,42,0.12)] backdrop-blur-xl">
-                  <div className="relative aspect-[1.18/1] bg-[#111111] p-4 text-white">
-                    <div className="absolute inset-0 opacity-55 phase3-map-grid" aria-hidden="true" />
-                    <span className="relative inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.08] px-3 py-2 text-xs font-black uppercase tracking-[0.12em] text-white/68">
-                      <MapPin size={14} className="text-[#F6C453]" aria-hidden="true" />
-                      {item.tag}
-                    </span>
-                    <div className="absolute bottom-4 left-4 right-4 rounded-md border border-white/10 bg-black/34 p-4 backdrop-blur">
-                      <Building2 className="text-[#F6C453]" size={24} aria-hidden="true" />
-                      <h3 className="mt-4 text-2xl font-black">{item.title}</h3>
-                      <p className="mt-2 text-sm font-bold text-white/50">{item.location}</p>
-                    </div>
-                  </div>
-                  <div className="p-5">
-                    <p className="text-lg font-black">{item.price}</p>
-                    <div className="mt-5 flex items-center gap-2 text-sm font-bold text-black/54">
-                      <CheckCircle2 size={17} className="text-[#D99A2B]" aria-hidden="true" />
-                      príprava na viewing request
-                    </div>
-                    <Link href="/sluzby/vybrane-ponuky" className="btn-secondary mt-6 w-full">
-                      Detail placeholder
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <FeaturedListingsSection />
 
         <CoreServicesSection />
 
